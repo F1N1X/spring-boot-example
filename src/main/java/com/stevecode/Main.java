@@ -8,12 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//@SpringBootApplication
-@ComponentScan(basePackages = "com.stevecode")
-@EnableAutoConfiguration
-@Configuration
-@RestController
+@SpringBootApplication
 
+@RestController
 public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
