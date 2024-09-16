@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @SpringBootApplication
 @RestController
 public class Main {
@@ -15,27 +17,21 @@ public class Main {
 
     @GetMapping("/greet")
     public GreedResponse greet() {
-        return new GreedResponse("Whats up");
+        GreedResponse response = new GreedResponse(
+                "Hallo Friends",
+                List.of("Python","Java","JavaScript"),
+                new Person("Martin", 30, 10_000)
+                );
+
+        return response;
     }
 
-    //record GreedResponse(String greet) {}
+    record Person(String name, int age, double savings){}
 
-    class GreetResponse {
-        private final String greet;
+    record GreedResponse(
+            String greet,
+            List<String> favoriteProgrammingLanguages,
+            Person person
+            ) {}
 
-        GreetResponse(String greet) {
-            this.greet = greet;
-        }
-
-        public String getGreet() {
-            return greet;
-        }
-
-        @Override
-        public String toString() {
-            return greet;
-        }
-
-        //..hashCode-Method
-    }
 }
