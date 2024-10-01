@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,9 +17,11 @@ public class Main {
     }
 
     @GetMapping("/greet")
-    public GreedResponse greet() {
+    public GreedResponse greet(@RequestParam(value = "name", required = false) String name) {
+        //http://localhost:8080/greet?name=Peter
+        String greetMessage = name == null || name.isBlank() ? "Hello" : "Hello " + name;
         GreedResponse response = new GreedResponse(
-                "Hallo Friends",
+                greetMessage,
                 List.of("Python","Java","JavaScript"),
                 new Person("Martin", 30, 10_000)
                 );
