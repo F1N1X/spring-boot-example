@@ -27,7 +27,7 @@ public class Main {
                 22
         );
         Customer jasmin = new Customer(
-                1,
+                2,
                 "Jasmin",
                 "jamol@mail.com",
                 19
@@ -53,17 +53,25 @@ public class Main {
         return customers;
     }
 
+    @GetMapping("api/v1/customers/{customerId}")
+    public Customer getCustomer(
+            @PathVariable("customerId") Integer customerId) {
+        return customers.stream()
+                .filter(customer -> customer.id.equals(customerId))
+                .findFirst()
+                .orElseThrow(() ->new IllegalArgumentException("customer with id [%s] not found".formatted(customerId)));
+    }
 
     //alt+einf
     static class Customer {
-        private int id;
+        private Integer id;
         private String name;
         private String email;
-        private int age;
+        private Integer age;
 
         public  Customer() {}
 
-        public Customer(int id, String name, String email, int age) {
+        public Customer(Integer id, String name, String email, Integer age) {
             this.id = id;
             this.name = name;
             this.email = email;
