@@ -7,24 +7,50 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @SpringBootApplication
 @RestController
 public class Main {
+
+
+
+    //db
+    private static List<Customer> customers;
+
+    static {
+        customers = new ArrayList<>();
+        Customer peter = new Customer(
+                1,
+                "Peter",
+                "peter@mail.com",
+                22
+        );
+        Customer jamole = new Customer(
+                1,
+                "jamole",
+                "jamol@mail.com",
+                19
+        );
+        customers.add(peter);
+        customers.add(jamole);
+    }
+
+
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
 
     //alt+einf
-    class Customer {
+    static class Customer {
         private int id;
         private String name;
         private String email;
         private int age;
 
-        public Customer() {}
+        public  Customer() {}
 
         public Customer(int id, String name, String email, int age) {
             this.id = id;
