@@ -3,9 +3,7 @@ package com.stevecode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,20 +26,33 @@ public class Main {
                 "peter@mail.com",
                 22
         );
-        Customer jamole = new Customer(
+        Customer jasmin = new Customer(
                 1,
-                "jamole",
+                "Jasmin",
                 "jamol@mail.com",
                 19
         );
         customers.add(peter);
-        customers.add(jamole);
+        customers.add(jasmin);
     }
 
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
+/*
+    //use v1 for backend comp.
+    @RequestMapping(
+            path = "api/v1/customer",
+            method = RequestMethod.GET
+    )
+    //Longer Version-> GetMapping
+    */
+    @GetMapping("api/v1/customers")
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
 
     //alt+einf
     static class Customer {
