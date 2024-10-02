@@ -1,7 +1,11 @@
 package com.stevecode.customer;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+//Service for BL
+@Service
 public class CustomerService {
 
     private final CustomerDao customerDao;

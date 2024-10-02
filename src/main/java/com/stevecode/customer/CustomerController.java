@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
+//Bean
 @RestController
 public class CustomerController {
 
