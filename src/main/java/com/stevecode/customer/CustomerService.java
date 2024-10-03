@@ -1,5 +1,6 @@
 package com.stevecode.customer;
 
+import com.stevecode.exception.ResourceNotFound;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class CustomerService {
     public Customer getCustomer(Integer id) {
         return customerDao.selectCustomerById(id)
                 .orElseThrow(
-                        ()-> new IllegalArgumentException(
+                        ()-> new ResourceNotFound(
                                 "Customer with id [%s] not found".formatted(id)
                         )
                 );
