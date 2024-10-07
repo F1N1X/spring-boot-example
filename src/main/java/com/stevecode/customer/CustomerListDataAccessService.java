@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 //For DAO
-@Repository
+@Repository("jpa")
 public class CustomerListDataAccessService implements CustomerDao {
 
 
