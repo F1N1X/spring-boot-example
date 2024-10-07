@@ -27,7 +27,7 @@ public class CustomerController {
        return customerService.getCustomer(customerId);
     }
 
-    @PatchMapping
+    @PostMapping
     public void registerCustomer(
             @RequestBody CustomerRegistrationRequest request) {
         customerService.addCustomer(request);
