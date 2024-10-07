@@ -8,7 +8,7 @@ import java.util.Optional;
 
 //For DAO
 @Repository
-public class CustomerDataAccessService  implements CustomerDao {
+public class CustomerListDataAccessService implements CustomerDao {
 
 
     private static List<Customer> customers;
