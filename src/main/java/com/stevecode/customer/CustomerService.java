@@ -1,6 +1,7 @@
 package com.stevecode.customer;
 
-import com.stevecode.exception.ResourceNotFound;
+import com.stevecode.exception.DuplicateResourceException;
+import com.stevecode.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +25,28 @@ public class CustomerService {
     public Customer getCustomer(Integer id) {
         return customerDao.selectCustomerById(id)
                 .orElseThrow(
-                        ()-> new ResourceNotFound(
+                        ()-> new ResourceNotFoundException(
                                 "Customer with id [%s] not found".formatted(id)
                         )
                 );
+    }
+
+    public void addCustomer(
+            CustomerRegistrationRequest customerRegistrationRequest) {
+
+        String email = customerRegistrationRequest.email();;
+
+        if (customerDao.existsPersonWithEmail(customerRegistrationRequest.email())) {
+            throw new DuplicateResourceException("Email already taken");
+        }
+
+        customerDao.insertCustomer(
+                new Customer(
+                        customerRegistrationRequest.name(),
+                        customerRegistrationRequest.email(),
+                        customerRegistrationRequest.age()
+                )
+        );
+
     }
 }
