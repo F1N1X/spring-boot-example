@@ -34,7 +34,6 @@ public class CustomerService {
     public void addCustomer(
             CustomerRegistrationRequest customerRegistrationRequest) {
 
-        String email = customerRegistrationRequest.email();;
 
         if (customerDao.existsPersonWithEmail(customerRegistrationRequest.email())) {
             throw new DuplicateResourceException("Email already taken");
@@ -48,5 +47,12 @@ public class CustomerService {
                 )
         );
 
+    }
+    public void deleteCustomerById(Integer customerId) {
+        if (!customerDao.existPersonWithId(customerId))
+            throw new ResourceNotFoundException(
+                    "Customer with ID [%s] not exist".formatted(customerId)
+            );
+        customerDao.deleteCustomerById(customerId);
     }
 }
