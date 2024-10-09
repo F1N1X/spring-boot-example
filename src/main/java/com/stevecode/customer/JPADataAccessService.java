@@ -44,4 +44,27 @@ public class JPADataAccessService implements CustomerDao{
         customerRepository.deleteById(id);
     }
 
+    @Override
+    public void updateCustomer(Customer updateCustomer) {
+        var customerFromDb = customerRepository.getReferenceById(updateCustomer.getId());
+
+        if (updateCustomer.getEmail() != null) {
+            customerFromDb.setEmail(updateCustomer.getEmail());
+        }
+        if (updateCustomer.getAge() != null) {
+            customerFromDb.setAge(updateCustomer.getAge());
+        }
+        if (updateCustomer.getName() != null) {
+            customerFromDb.setName(updateCustomer.getName());
+        }
+
+        customerRepository.save(customerFromDb);
+    }
+
+
+    @Override
+    public boolean checkUpdateData(Customer updateData) {
+        return customerRepository.getReferenceById(updateData.getId()).equals(updateData);
+    }
+
 }

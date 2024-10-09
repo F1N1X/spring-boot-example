@@ -1,6 +1,7 @@
 package com.stevecode.customer;
 
 import com.stevecode.exception.DuplicateResourceException;
+import com.stevecode.exception.NothingToUpdateException;
 import com.stevecode.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -54,5 +55,27 @@ public class CustomerService {
                     "Customer with ID [%s] not exist".formatted(customerId)
             );
         customerDao.deleteCustomerById(customerId);
+    }
+
+    public void updateCustomer(Integer customerId,CustomerUpdateRequest customerUpdateRequest) {
+        if (!customerDao.existPersonWithId(customerId))
+            throw new ResourceNotFoundException(
+                    "Customer with ID [%s] not exist".formatted(customerId)
+            );
+
+        var customerData = new Customer(
+                customerId,
+                customerUpdateRequest.name(),
+                customerUpdateRequest.email(),
+                customerUpdateRequest.age()
+        );
+
+        if (customerDao.checkUpdateData(customerData))
+            throw new NothingToUpdateException(
+                    "Customer with ID [%s] nothing to update".formatted(customerId)
+            );
+
+        customerDao.updateCustomer(customerData);
+
     }
 }

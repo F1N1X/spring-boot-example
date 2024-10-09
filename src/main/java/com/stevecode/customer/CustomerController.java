@@ -27,6 +27,14 @@ public class CustomerController {
        return customerService.getCustomer(customerId);
     }
 
+    @PutMapping("{customerId}")
+    public void updateCustomer(
+            @PathVariable Integer customerId,
+            @RequestBody CustomerUpdateRequest request) {
+         customerService.updateCustomer(customerId,request);
+    }
+
+
     @PostMapping
     public void registerCustomer(
             @RequestBody CustomerRegistrationRequest request) {
