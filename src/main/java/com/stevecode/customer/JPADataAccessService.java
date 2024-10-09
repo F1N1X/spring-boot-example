@@ -3,6 +3,7 @@ package com.stevecode.customer;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Repository("jpa")
@@ -64,7 +65,12 @@ public class JPADataAccessService implements CustomerDao{
 
     @Override
     public boolean checkUpdateData(Customer updateData) {
-        return customerRepository.getReferenceById(updateData.getId()).equals(updateData);
+        var customer = customerRepository.getReferenceById(updateData.getId());
+
+        return !Objects.equals(customer.getAge(), updateData.getAge())
+                && !Objects.equals(customer.getName(), updateData.getName())
+                && !Objects.equals(customer.getEmail(), updateData.getEmail());
+
     }
 
 }
