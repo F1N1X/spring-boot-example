@@ -1,7 +1,7 @@
 package com.stevecode.customer;
 
 import com.stevecode.exception.DuplicateResourceException;
-import com.stevecode.exception.NothingToUpdateException;
+import com.stevecode.exception.RequestValidationException;
 import com.stevecode.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -87,14 +87,14 @@ public class CustomerService {
             if (customerDao.existsPersonWithEmail(customerUpdateRequest.email()))
                 throw new DuplicateResourceException(
                         "Email [%s] is already taken".formatted(customerUpdateRequest.email()));
-            
+
             customer.setName(customerUpdateRequest.email());
             changeFound = true;
         }
 
 
         if (!changeFound)
-            throw new NothingToUpdateException(
+            throw new RequestValidationException(
                     "Customer with ID [%s] nothing to update".formatted(customerId)
             );
 
