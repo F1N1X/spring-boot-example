@@ -70,7 +70,26 @@ public class CustomerService {
                 customerUpdateRequest.age()
         );
 
-        if (customerDao.checkUpdateData(customerData))
+        var changeFound = false;
+        Customer customer = getCustomer(customerId);
+
+        if (!(customer.getAge().equals(customerUpdateRequest.age())) && customerUpdateRequest.age() != null) {
+            customer.setAge(customerUpdateRequest.age());
+            changeFound = true;
+        }
+
+        if (!(customer.getName().equals(customerUpdateRequest.name())) && customerUpdateRequest.name() != null) {
+            customer.setName(customerUpdateRequest.name());
+            changeFound = true;
+        }
+
+        if (!(customer.getEmail().equals(customerUpdateRequest.email())) && customerUpdateRequest.email() != null) {
+            customer.setName(customerUpdateRequest.email());
+            changeFound = true;
+        }
+
+
+        if (!changeFound)
             throw new NothingToUpdateException(
                     "Customer with ID [%s] nothing to update".formatted(customerId)
             );

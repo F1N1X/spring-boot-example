@@ -73,12 +73,6 @@ public class CustomerListDataAccessService implements CustomerDao {
 
     }
 
-    @Override
-    public boolean checkUpdateData(Customer updateCustomer) {
-        return false;
-    }
-
-
 }
 
 

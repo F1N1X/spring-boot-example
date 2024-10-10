@@ -18,6 +18,5 @@ public interface CustomerDao {
 
     void updateCustomer(Customer updateCustomer);
 
-    boolean checkUpdateData(Customer updateCustomer);
 
 }
