@@ -66,19 +66,15 @@ public class JPADataAccessService implements CustomerDao{
     @Override
     public boolean checkUpdateData(Customer updateData) {
         var customer = customerRepository.getReferenceById(updateData.getId());
-        var changesFound = false;
+        boolean nothingToChange = false;
 
-        if (!updateData.getName().equals(customer.getName()))
-            changesFound = true;
-        if (!updateData.getAge().equals(customer.getAge()))
-            changesFound = true;
-        if (!updateData.getEmail().equals(customer.getEmail()))
-            changesFound = true;
-
-        return changesFound;
-
-
-
+        if (!customer.getEmail().equals(updateData.getEmail()) && updateData.getAge() != null)
+            nothingToChange = true;
+        if (!customer.getAge().equals(updateData.getAge()) && updateData.getAge() !=null)
+            nothingToChange = true;
+        if (!customer.getName().equals(updateData.getName()) && updateData.getName()!=null)
+            nothingToChange = true;
+        return nothingToChange;
     }
 
 }
