@@ -84,6 +84,10 @@ public class CustomerService {
         }
 
         if (!(customer.getEmail().equals(customerUpdateRequest.email())) && customerUpdateRequest.email() != null) {
+            if (customerDao.existsPersonWithEmail(customerUpdateRequest.email()))
+                throw new DuplicateResourceException(
+                        "Email [%s] is already taken".formatted(customerUpdateRequest.email()));
+            
             customer.setName(customerUpdateRequest.email());
             changeFound = true;
         }
