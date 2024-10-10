@@ -42,7 +42,7 @@ public class Main {
             );
 
             List<Customer> customers = List.of(peter, sugwinda);
-            customerRepository.saveAll(customers);
+            //customerRepository.saveAll(customers);
         };
     }
 
