@@ -1,7 +1,9 @@
+version: '3.8'
+
 services:
   db:
     container_name: postgres
-    image: postgres:16  # Version auf 16 geändert
+    image: postgres:16  # Version auf 16 gesetzt
     environment:
       POSTGRES_USER: amigoscode
       POSTGRES_PASSWORD: password
@@ -13,6 +15,7 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
