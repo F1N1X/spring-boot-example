@@ -1,5 +1,6 @@
 package com.stevecode;
 
+import com.github.javafaker.Faker;
 import com.stevecode.customer.Customer;
 import com.stevecode.customer.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -26,23 +27,26 @@ public class Main {
 
     }
 
+
+
     @Bean
     CommandLineRunner runner(CustomerRepository customerRepository) {
 
         return args -> {
-            Customer peter = new Customer(
-                    "Peter",
-                    "peter@mail.com",
-                    22
-            );
-            Customer sugwinda = new Customer(
-                    "Sugwinda",
-                    "jamol@mail.com",
-                    19
+
+            Faker faker = new Faker();
+
+            Customer testFaker = new Customer(
+                    faker.name().fullName(),
+                    faker.funnyName().name()+"@gmail.com",
+                    faker.number().numberBetween(10,50)
             );
 
-            List<Customer> customers = List.of(peter, sugwinda);
-            customerRepository.saveAll(customers);
+
+
+
+            //List<Customer> customers = List.of(peter, sugwinda);
+            customerRepository.save(testFaker);
         };
     }
 
