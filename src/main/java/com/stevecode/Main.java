@@ -38,7 +38,7 @@ public class Main {
 
             Customer testFaker = new Customer(
                     faker.name().fullName(),
-                    faker.funnyName().name()+"@gmail.com",
+                    faker.internet().safeEmailAddress(),
                     faker.number().numberBetween(10,50)
             );
 
