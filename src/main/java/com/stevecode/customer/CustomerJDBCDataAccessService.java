@@ -67,7 +67,8 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     @Override
     public boolean existsPersonWithEmail(String email) {
         var sql = "SELECT COUNT(*) FROM customer WHERE email = ?";
-        return jdbcTemplate.queryForObject(sql,new Object[]{email},Integer.class) != 0;
+        Integer count = jdbcTemplate.queryForObject(sql,Integer.class,email);
+        return  count != null && count > 0;
     }
 
     //Refactorable
@@ -76,7 +77,8 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
         var sql = """
                 SELECT COUNT(*) FROM customer WHERE id = ? 
                 """;
-        return jdbcTemplate.queryForObject(sql,new Object[]{id}, Integer.class) > 0;
+        Integer count = jdbcTemplate.queryForObject(sql,Integer.class,id);
+        return  count != null && count > 0;
     }
 
     @Override
