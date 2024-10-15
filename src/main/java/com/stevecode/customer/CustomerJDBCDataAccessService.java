@@ -42,6 +42,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
                 where id = ?
                 """;
 
+        //for Object use query behind
         return jdbcTemplate.query(sql,customerRowMapper,id)
                 .stream()
                 .findFirst();
@@ -64,7 +65,8 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
 
     @Override
     public boolean existsPersonWithEmail(String email) {
-        return false;
+        var sql = "SELECT COUNT(*) FROM customer WHERE email = ?";
+        return jdbcTemplate.queryForObject(sql,new Object[]{email},Integer.class) != 0;
     }
 
     @Override
