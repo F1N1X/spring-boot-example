@@ -35,12 +35,16 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
         if (!existPersonWithId(id))
             throw new ResourceNotFoundException("Customer with id " + id + " not found");
 
+
         var sql = """
-                SELECT * FROM customer WHERE id = ?
+                SELECT id, name, email, age
+                FROM customer
+                where id = ?
                 """;
 
-        return Optional.of(jdbcTemplate.queryForObject(sql, new Object[]{id}, customerRowMapper));
-
+        return jdbcTemplate.query(sql,customerRowMapper,id)
+                .stream()
+                .findFirst();
     }
 
     @Override
