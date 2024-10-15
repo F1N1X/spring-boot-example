@@ -63,12 +63,14 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
         System.out.println("jdbcTemplate.update " + result );
     }
 
+    //Refactorable
     @Override
     public boolean existsPersonWithEmail(String email) {
         var sql = "SELECT COUNT(*) FROM customer WHERE email = ?";
         return jdbcTemplate.queryForObject(sql,new Object[]{email},Integer.class) != 0;
     }
 
+    //Refactorable
     @Override
     public boolean existPersonWithId(Integer id) {
         var sql = """
@@ -80,10 +82,22 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     @Override
     public void deleteCustomerById(Integer id) {
 
+        if (!existPersonWithId(id))
+            throw new ResourceNotFoundException("Customer with id " + id + " not found");
+
+        var sql = """
+                DELETE FROM customer WHERE id = ?
+                """;
+
+        jdbcTemplate.update(sql,id);
     }
 
     @Override
     public void updateCustomer(Customer updateCustomer) {
+        var sql = """
+                UPDATE customer SET name = ?, email = ?, age = ? WHERE id = ?
+                """;
+        jdbcTemplate.update(sql,updateCustomer.getName(),updateCustomer.getEmail(),updateCustomer.getAge(),updateCustomer.getId());
 
     }
 }
