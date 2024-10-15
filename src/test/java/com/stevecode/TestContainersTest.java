@@ -1,5 +1,6 @@
 package com.stevecode;
 
+import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -28,5 +29,18 @@ public class TestContainersTest {
     void canStartPostgresqlDB() {
        assertThat(postgreSQLContainer.isRunning()).isTrue();
         assertThat(postgreSQLContainer.isCreated()).isTrue();
+    }
+
+    //https://documentation.red-gate.com/fd/api-java-184127629.html
+    @Test
+    void canApplyDbMigrationsWithFlyway() {
+        Flyway flyway = Flyway.configure().dataSource(
+                postgreSQLContainer.getJdbcUrl(),
+                postgreSQLContainer.getUsername(),
+                postgreSQLContainer.getPassword()
+        ).load();
+        flyway.migrate();
+        System.out.println();
+
     }
 }
