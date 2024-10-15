@@ -35,9 +35,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
                 return customer;
         };
 
-        List<Customer> customers = jdbcTemplate.query(sql, customerRowMapper);
-
-        return customers;
+        return jdbcTemplate.query(sql, customerRowMapper);
     }
 
     @Override
