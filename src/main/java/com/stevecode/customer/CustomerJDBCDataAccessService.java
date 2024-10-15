@@ -11,11 +11,13 @@ import java.util.Optional;
 @Repository("jdbc")
 public class CustomerJDBCDataAccessService implements CustomerDao{
 
-    public CustomerJDBCDataAccessService(JdbcTemplate jdbcTemplate) {
+    public CustomerJDBCDataAccessService(JdbcTemplate jdbcTemplate, CustomerRowMapper customerRowMapper) {
         this.jdbcTemplate = jdbcTemplate;
+        this.customerRowMapper = customerRowMapper;
     }
 
     private JdbcTemplate jdbcTemplate;
+    private CustomerRowMapper customerRowMapper;
 
     @Override
     public List<Customer> selectAllCustomers() {
@@ -23,14 +25,6 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
                 SELECT id, name, email, age
                 FROM customer
                 """;
-        RowMapper<Customer> customerRowMapper =
-                (rs,rowNum) -> new Customer(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("email"),
-                        rs.getInt("age")
-
-                );
 
         return jdbcTemplate.query(sql, customerRowMapper);
     }
