@@ -11,6 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TestContainersTest {
 
     //lockup-DockerHub ->latest not work with fly...
+    //psql -U stevecode -d stevecode-dao-unit-test
+    //l
+    //c database
+    //d relations
 
     @Container
     private static final PostgreSQLContainer<?> postgreSQLContainer
