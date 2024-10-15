@@ -1,5 +1,6 @@
 package com.stevecode.customer;
 
+import com.stevecode.exception.ResourceNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -11,13 +12,13 @@ import java.util.Optional;
 @Repository("jdbc")
 public class CustomerJDBCDataAccessService implements CustomerDao{
 
+    private JdbcTemplate jdbcTemplate;
+    private CustomerRowMapper customerRowMapper;
+
     public CustomerJDBCDataAccessService(JdbcTemplate jdbcTemplate, CustomerRowMapper customerRowMapper) {
         this.jdbcTemplate = jdbcTemplate;
         this.customerRowMapper = customerRowMapper;
     }
-
-    private JdbcTemplate jdbcTemplate;
-    private CustomerRowMapper customerRowMapper;
 
     @Override
     public List<Customer> selectAllCustomers() {
@@ -31,7 +32,15 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
 
     @Override
     public Optional<Customer> selectCustomerById(Integer id) {
-        return Optional.empty();
+        if (!existPersonWithId(id))
+            throw new ResourceNotFoundException("Customer with id " + id + " not found");
+
+        var sql = """
+                SELECT * FROM customer WHERE id = ?
+                """;
+
+        return Optional.of(jdbcTemplate.queryForObject(sql, new Object[]{id}, customerRowMapper));
+
     }
 
     @Override
@@ -56,7 +65,10 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
 
     @Override
     public boolean existPersonWithId(Integer id) {
-        return false;
+        var sql = """
+                SELECT COUNT(*) FROM customer WHERE id = ? 
+                """;
+        return jdbcTemplate.queryForObject(sql,new Object[]{id}, Integer.class) > 0;
     }
 
     @Override
