@@ -1,5 +1,6 @@
 package com.stevecode.customer;
 
+import com.stevecode.TestContainersTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 //right -> Generate Test setBefore
-class CustomerJDBCDataAccessServiceTest {
+class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     private CustomerJDBCDataAccessService underTest;
     private final CustomerRowMapper customerRowMapper = new CustomerRowMapper();
@@ -17,7 +18,7 @@ class CustomerJDBCDataAccessServiceTest {
     void setUp() {
         //For Each Test = new Instance
         underTest = new CustomerJDBCDataAccessService(
-                new JdbcTemplate(),
+                getJdbcTemplate(),
                 customerRowMapper
         );
     }
