@@ -10,6 +10,8 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+//SpringBootTest -> Not for Unit-Tests -> initialize all Beans
+//In this Test Only-Focus on DAO-Layer
 @Testcontainers
 public class TestContainersTest {
 
