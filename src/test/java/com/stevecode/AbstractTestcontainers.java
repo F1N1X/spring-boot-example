@@ -50,7 +50,7 @@ public abstract class AbstractTestcontainers {
                 postgreSQLContainer::getPassword);
     }
 
-    protected static DataSource getDataSource() {
+    private static DataSource getDataSource() {
         return
                 DataSourceBuilder.create()
                         .driverClassName(postgreSQLContainer.getDriverClassName())
