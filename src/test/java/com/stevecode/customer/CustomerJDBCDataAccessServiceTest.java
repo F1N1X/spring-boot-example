@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -49,6 +50,34 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     @Test
     void selectCustomerById() {
+        //Given
+        String email = faker.internet().emailAddress() + UUID.randomUUID();
+        Customer customer = new Customer(
+                faker.name().fullName(),
+                email,
+                faker.number().numberBetween(16,60)
+        );
+        underTest.insertCustomer(customer);
+        int id = underTest.selectAllCustomers()
+                .stream()
+                .filter(c -> c.getEmail().equals(email))
+                .map(Customer::getId)
+                .findFirst()
+                .orElseThrow();
+
+        //When
+        Optional<Customer> actual =
+                underTest.selectCustomerById(id);
+
+        //Then
+        assertThat(actual).isPresent().hasValueSatisfying(
+                c -> {
+                    assertThat(c.getEmail()).isEqualTo(customer.getEmail());
+                    assertThat(c.getId()).isEqualTo(customer.getId());
+                    assertThat(c.getName()).isEqualTo(customer.getName());
+                    assertThat(c.getAge()).isEqualTo(customer.getAge());
+                }
+        );
     }
 
     @Test
