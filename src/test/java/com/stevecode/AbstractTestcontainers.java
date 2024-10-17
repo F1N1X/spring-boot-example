@@ -12,9 +12,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import javax.sql.DataSource;
 
-import java.time.chrono.JapaneseDate;
 
-import static org.assertj.core.api.Assertions.assertThat;
 @Testcontainers
 public abstract class AbstractTestcontainers {
     @BeforeAll
