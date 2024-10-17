@@ -5,6 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+import java.util.UUID;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -25,6 +29,22 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     @Test
     void selectAllCustomers() {
+        //Given
+        Customer customer = new Customer(
+                faker.name().fullName(),
+                faker.internet().emailAddress()+ UUID.randomUUID(),
+                faker.number().numberBetween(16,60)
+        );
+
+        //Method to Test
+        underTest.insertCustomer(customer);
+
+        //When
+        List<Customer> customers = underTest.selectAllCustomers();
+
+        //Then
+        //assertj
+        assertThat(customers.isEmpty()).isFalse();
     }
 
     @Test

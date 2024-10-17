@@ -1,5 +1,6 @@
 package com.stevecode;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -13,4 +14,6 @@ public class TestContainersTest extends AbstractTestcontainers {
        assertThat(postgreSQLContainer.isRunning()).isTrue();
         assertThat(postgreSQLContainer.isCreated()).isTrue();
     }
+
+    protected static final Faker faker = new Faker();
 }
