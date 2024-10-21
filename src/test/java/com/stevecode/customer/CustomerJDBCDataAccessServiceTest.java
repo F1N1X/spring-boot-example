@@ -82,6 +82,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     @Test
     void insertCustomer() {
+        //Test for Insert
     }
 
     @Test
