@@ -130,6 +130,24 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     @Test
     void existPersonWithId() {
+        //Given
+        var mail = faker.internet().emailAddress();
+        var customer = new Customer(
+                faker.name().fullName(),
+               mail,
+                faker.number().numberBetween(16,60)
+        );
+        underTest.insertCustomer(customer);
+        var isIdFound = underTest.selectAllCustomers()
+                .stream()
+                .filter(c -> c.getEmail().equals(mail))
+                .findFirst()
+                .map(Customer::getId)
+                .map(underTest::existPersonWithId)
+                .orElseThrow();
+
+        //When
+        assertThat(isIdFound).isTrue();
     }
 
     @Test
