@@ -234,6 +234,36 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
     }
 
     @Test
+    void updateCustomerEmail() {
+        //Given
+        var nameToFoundCustomer = faker.name().fullName();
+        var emailToCompare = faker.internet().emailAddress();
+        var customer = new Customer(
+                nameToFoundCustomer,
+                emailToCompare,
+                faker.number().numberBetween(16,60)
+        );
+        underTest.insertCustomer(customer);
+
+        Customer customerToUpdateName = underTest.selectAllCustomers()
+                .stream()
+                .filter(c -> c.getEmail().equals(emailToCompare))
+                .findFirst()
+                .orElseThrow();
+
+        customerToUpdateName.setEmail(faker.internet().emailAddress());
+        underTest.updateCustomer(customerToUpdateName);
+
+        Customer updateCustomerData = underTest.selectAllCustomers()
+                .stream()
+                .filter(m -> m.getName().equals(nameToFoundCustomer))
+                .findFirst()
+                .orElseThrow();
+
+        assertThat(emailToCompare.equals(updateCustomerData.getEmail())).isFalse();
+    }
+
+    @Test
     void updateCustomer() {
     }
 }
