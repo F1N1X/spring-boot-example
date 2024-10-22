@@ -103,7 +103,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
     void existsPersonWithEmail() {
         //Given
         var email = faker.internet().emailAddress();
-        var faker = new Faker();
+
         var customer = new Customer(
                 faker.name().fullName(),
                 email,
@@ -116,6 +116,16 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         var isExist = underTest.existsPersonWithEmail(email);
         //Then
         assertThat(isExist).isTrue();
+    }
+
+    @Test
+    void existsPersonWithEmailReturnsFalseWhenDoesNotExists() {
+        //Given
+        var email = faker.internet().emailAddress()+ UUID.randomUUID();
+        //When
+        var selectCustomer = underTest.existsPersonWithEmail(email);
+        //Then
+        assertThat(selectCustomer).isFalse();
     }
 
     @Test
