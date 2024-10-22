@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -171,6 +172,38 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         //When
         assertThat(underTest.existPersonWithId(idToDelete)).isFalse();
     }
+
+    @Test
+    void updateCustomerName() {
+        //Given
+        var nameToUpdate = faker.name().fullName();
+        var emailToFound = faker.internet().emailAddress();
+        var customer = new Customer(
+               nameToUpdate,
+               emailToFound,
+                faker.number().numberBetween(16,60)
+        );
+        underTest.insertCustomer(customer);
+
+        Customer customerToUpdateName = underTest.selectAllCustomers()
+                .stream()
+                .filter(c -> c.getName().equals(nameToUpdate))
+                .findFirst()
+                .orElseThrow();
+
+        customerToUpdateName.setName(faker.name().fullName());
+        underTest.updateCustomer(customerToUpdateName);
+
+        Customer updateCustomerData = underTest.selectAllCustomers()
+                .stream()
+                .filter(m -> m.getEmail().equals(emailToFound))
+                .findFirst()
+                .orElseThrow();
+
+        assertThat(nameToUpdate.equals(updateCustomerData.getName())).isFalse();
+    }
+
+    
 
     @Test
     void updateCustomer() {
