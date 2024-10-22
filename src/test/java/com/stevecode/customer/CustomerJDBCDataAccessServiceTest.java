@@ -150,8 +150,26 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         assertThat(isIdFound).isTrue();
     }
 
+
     @Test
     void deleteCustomerById() {
+        //Given
+        var mail = faker.internet().emailAddress();
+        var customer = new Customer(
+                faker.name().fullName(),
+                mail,
+                faker.number().numberBetween(16,60)
+        );
+        underTest.insertCustomer(customer);
+        var idToDelete = underTest.selectAllCustomers()
+                .stream()
+                .filter(c -> c.getEmail().equals(mail))
+                .map(Customer::getId)
+                .findFirst()
+                .orElseThrow();
+        underTest.deleteCustomerById(idToDelete);
+        //When
+        assertThat(underTest.existPersonWithId(idToDelete)).isFalse();
     }
 
     @Test
