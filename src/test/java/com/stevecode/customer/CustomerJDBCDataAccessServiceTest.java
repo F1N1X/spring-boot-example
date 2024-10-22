@@ -1,5 +1,6 @@
 package com.stevecode.customer;
 
+import com.github.javafaker.Faker;
 import com.stevecode.TestContainersTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -80,6 +81,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         );
     }
 
+
     @Test
     void willReturnEmptyWhenSelectCustomerById() {
         //Given
@@ -99,6 +101,21 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     @Test
     void existsPersonWithEmail() {
+        //Given
+        var email = faker.internet().emailAddress();
+        var faker = new Faker();
+        var customer = new Customer(
+                faker.name().fullName(),
+                email,
+                faker.number().numberBetween(10,20)
+        );
+
+        underTest.insertCustomer(customer);
+
+        //When
+        var count = underTest.existsPersonWithEmail(email);
+        //Then
+        assertThat(count).isEqualTo(1);
     }
 
     @Test
