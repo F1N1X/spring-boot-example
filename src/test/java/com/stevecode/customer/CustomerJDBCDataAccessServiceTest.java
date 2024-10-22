@@ -265,5 +265,10 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     @Test
     void updateCustomer() {
+
+    }
+    @Test
+    void updateCustomerNothingToUpdate() {
+
     }
 }
