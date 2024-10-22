@@ -113,9 +113,9 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         underTest.insertCustomer(customer);
 
         //When
-        var count = underTest.existsPersonWithEmail(email);
+        var isExist = underTest.existsPersonWithEmail(email);
         //Then
-        assertThat(count).isEqualTo(1);
+        assertThat(isExist).isTrue();
     }
 
     @Test
