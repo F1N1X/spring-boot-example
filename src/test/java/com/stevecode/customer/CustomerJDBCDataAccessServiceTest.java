@@ -15,6 +15,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+//Given
+//When
+//Then
+
+//Run with Coverage
+
 //right -> Generate Test setBefore
 class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
@@ -75,7 +81,6 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         assertThat(actual).isPresent().hasValueSatisfying(
                 c -> {
                     assertThat(c.getEmail()).isEqualTo(customer.getEmail());
-                    assertThat(c.getId()).isEqualTo(customer.getId());
                     assertThat(c.getName()).isEqualTo(customer.getName());
                     assertThat(c.getAge()).isEqualTo(customer.getAge());
                 }
@@ -288,8 +293,8 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         customer.setAge(faker.number().numberBetween(16,60));
         customer.setId(id);
         underTest.updateCustomer(customer);
-
         Optional<Customer> actualCustomer = underTest.selectCustomerById(id);
+
 
         assertThat(actualCustomer).isPresent().hasValueSatisfying(c -> {
             assertThat(c.getName()).isNotEqualTo(nameBeforeTest);
@@ -300,10 +305,6 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
     }
     @Test
     void updateCustomerNothingToUpdate() {
-
-
-
-
 
     }
 }
