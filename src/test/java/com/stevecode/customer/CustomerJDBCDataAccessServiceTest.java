@@ -265,10 +265,45 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     @Test
     void updateCustomer() {
+        //Given
+        var emailBeforeTest = faker.internet().emailAddress();
+        var ageBeforeTest = faker.number().numberBetween(16,60);
+        var nameBeforeTest = faker.name().fullName();
+        var customer = new Customer(
+                nameBeforeTest,
+                emailBeforeTest,
+                ageBeforeTest
+        );
+        underTest.insertCustomer(customer);
 
+        var id = underTest.selectAllCustomers()
+                        .stream()
+                                .filter(c -> c.getEmail().equals(emailBeforeTest))
+                                        .findFirst()
+                                                .map(Customer::getId)
+                                                        .orElseThrow();
+        //Then
+        customer.setName(faker.name().fullName());
+        customer.setEmail(faker.internet().emailAddress());
+        customer.setAge(faker.number().numberBetween(16,60));
+        customer.setId(id);
+        underTest.updateCustomer(customer);
+
+        Optional<Customer> actualCustomer = underTest.selectCustomerById(id);
+
+        assertThat(actualCustomer).isPresent().hasValueSatisfying(c -> {
+            assertThat(c.getName()).isNotEqualTo(nameBeforeTest);
+            assertThat(c.getEmail()).isNotEqualTo(emailBeforeTest);
+            assertThat(c.getAge()).isNotEqualTo(ageBeforeTest);
+                }
+        );
     }
     @Test
     void updateCustomerNothingToUpdate() {
+
+
+
+
 
     }
 }
