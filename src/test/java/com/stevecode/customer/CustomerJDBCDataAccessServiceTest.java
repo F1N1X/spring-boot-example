@@ -87,6 +87,8 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         );
     }
 
+    //Refactor on stuff on blank
+
 
     @Test
     void willReturnEmptyWhenSelectCustomerById() {
