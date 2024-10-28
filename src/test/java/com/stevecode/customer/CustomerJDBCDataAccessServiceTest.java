@@ -41,8 +41,8 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         //Given
         Customer customer = new Customer(
                 faker.name().fullName(),
-                faker.internet().emailAddress()+ UUID.randomUUID(),
-                faker.number().numberBetween(16,60)
+                faker.internet().emailAddress() + UUID.randomUUID(),
+                faker.number().numberBetween(16, 60)
         );
 
         //Method to Test
@@ -63,7 +63,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         Customer customer = new Customer(
                 faker.name().fullName(),
                 email,
-                faker.number().numberBetween(16,60)
+                faker.number().numberBetween(16, 60)
         );
         underTest.insertCustomer(customer);
         int id = underTest.selectAllCustomers()
@@ -104,7 +104,30 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
 
     @Test
     void insertCustomer() {
-        //Test for Insert
+        Customer customer = new Customer(
+                faker.name().fullName(),
+                faker.internet().emailAddress(),
+                faker.number().numberBetween(20,80)
+        );
+
+        underTest.insertCustomer(customer);
+
+        var actualId = underTest.selectAllCustomers()
+                .stream()
+                .filter(customer1 -> customer1.getEmail().equals(customer.getEmail()))
+                .findFirst()
+                .map(Customer::getId)
+                .orElseThrow();
+
+        Optional<Customer> actual = underTest.selectCustomerById(actualId);
+
+        assertThat(actual).isPresent().hasValueSatisfying(
+                c -> {
+                    assertThat(c.getEmail()).isEqualTo(customer.getEmail());
+                    assertThat(c.getName()).isEqualTo(customer.getName());
+                    assertThat(c.getAge()).isEqualTo(customer.getAge());
+                }
+        );
     }
 
     @Test
@@ -115,7 +138,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         var customer = new Customer(
                 faker.name().fullName(),
                 email,
-                faker.number().numberBetween(10,20)
+                faker.number().numberBetween(10, 20)
         );
 
         underTest.insertCustomer(customer);
@@ -129,7 +152,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
     @Test
     void existsPersonWithEmailReturnsFalseWhenDoesNotExists() {
         //Given
-        var email = faker.internet().emailAddress()+ UUID.randomUUID();
+        var email = faker.internet().emailAddress() + UUID.randomUUID();
         //When
         var selectCustomer = underTest.existsPersonWithEmail(email);
         //Then
@@ -142,8 +165,8 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         var mail = faker.internet().emailAddress();
         var customer = new Customer(
                 faker.name().fullName(),
-               mail,
-                faker.number().numberBetween(16,60)
+                mail,
+                faker.number().numberBetween(16, 60)
         );
         underTest.insertCustomer(customer);
         var isIdFound = underTest.selectAllCustomers()
@@ -153,6 +176,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
                 .map(Customer::getId)
                 .map(underTest::existPersonWithId)
                 .orElseThrow();
+
 
         //When
         assertThat(isIdFound).isTrue();
@@ -166,7 +190,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         var customer = new Customer(
                 faker.name().fullName(),
                 mail,
-                faker.number().numberBetween(16,60)
+                faker.number().numberBetween(16, 60)
         );
         underTest.insertCustomer(customer);
         var idToDelete = underTest.selectAllCustomers()
@@ -176,8 +200,9 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
                 .findFirst()
                 .orElseThrow();
         underTest.deleteCustomerById(idToDelete);
+        Optional<Customer> actual = underTest.selectCustomerById(idToDelete);
         //When
-        assertThat(underTest.existPersonWithId(idToDelete)).isFalse();
+        assert (actual).isEmpty();
     }
 
     @Test
@@ -186,9 +211,9 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         var nameToUpdate = faker.name().fullName();
         var emailToFound = faker.internet().emailAddress();
         var customer = new Customer(
-               nameToUpdate,
-               emailToFound,
-                faker.number().numberBetween(16,60)
+                nameToUpdate,
+                emailToFound,
+                faker.number().numberBetween(16, 60)
         );
         underTest.insertCustomer(customer);
 
@@ -213,7 +238,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
     @Test
     void updateCustomerAge() {
         //Given
-        var ageToUpdate = faker.number().numberBetween(16,60);
+        var ageToUpdate = faker.number().numberBetween(16, 60);
         var emailToFound = faker.internet().emailAddress();
         var customer = new Customer(
                 faker.name().fullName(),
@@ -228,7 +253,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
                 .findFirst()
                 .orElseThrow();
 
-        customerToUpdateName.setAge(faker.number().numberBetween(16,60));
+        customerToUpdateName.setAge(faker.number().numberBetween(16, 60));
         underTest.updateCustomer(customerToUpdateName);
 
         Customer updateCustomerData = underTest.selectAllCustomers()
@@ -248,7 +273,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         var customer = new Customer(
                 nameToFoundCustomer,
                 emailToCompare,
-                faker.number().numberBetween(16,60)
+                faker.number().numberBetween(16, 60)
         );
         underTest.insertCustomer(customer);
 
@@ -274,7 +299,7 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
     void updateCustomer() {
         //Given
         var emailBeforeTest = faker.internet().emailAddress();
-        var ageBeforeTest = faker.number().numberBetween(16,60);
+        var ageBeforeTest = faker.number().numberBetween(16, 60);
         var nameBeforeTest = faker.name().fullName();
         var customer = new Customer(
                 nameBeforeTest,
@@ -284,29 +309,47 @@ class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
         underTest.insertCustomer(customer);
 
         var id = underTest.selectAllCustomers()
-                        .stream()
-                                .filter(c -> c.getEmail().equals(emailBeforeTest))
-                                        .findFirst()
-                                                .map(Customer::getId)
-                                                        .orElseThrow();
+                .stream()
+                .filter(c -> c.getEmail().equals(emailBeforeTest))
+                .findFirst()
+                .map(Customer::getId)
+                .orElseThrow();
         //Then
         customer.setName(faker.name().fullName());
         customer.setEmail(faker.internet().emailAddress());
-        customer.setAge(faker.number().numberBetween(16,60));
+        customer.setAge(faker.number().numberBetween(16, 60));
         customer.setId(id);
         underTest.updateCustomer(customer);
         Optional<Customer> actualCustomer = underTest.selectCustomerById(id);
 
 
-        assertThat(actualCustomer).isPresent().hasValueSatisfying(c -> {
-            assertThat(c.getName()).isNotEqualTo(nameBeforeTest);
-            assertThat(c.getEmail()).isNotEqualTo(emailBeforeTest);
-            assertThat(c.getAge()).isNotEqualTo(ageBeforeTest);
-                }
-        );
+        assertThat(actualCustomer).isPresent().hasValue(customer);
     }
+
     @Test
     void updateCustomerNothingToUpdate() {
+        var customer = new Customer(
+                faker.name().fullName(),
+                faker.internet().emailAddress(),
+                faker.number().numberBetween(16, 60)
+        );
+        underTest.insertCustomer(customer);
 
+        int id = underTest.selectAllCustomers()
+                .stream()
+                .filter(c -> c.getEmail().equals(customer.getEmail()))
+                .findFirst()
+                .map(Customer::getId)
+                .orElseThrow();
+
+        Optional<Customer> actual = underTest.selectCustomerById(id);
+
+        assertThat(actual).isPresent().hasValueSatisfying(
+                c -> {
+                    assertThat(c.getEmail()).isEqualTo(customer.getEmail());
+                    assertThat(c.getName()).isEqualTo(customer.getName());
+                    assertThat(c.getAge()).isEqualTo(customer.getAge());
+                }
+        );
     }
 }
