@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 //Then
 
 //Run with Coverage
+//Use Metrics of SQ + Graph
 
 //right -> Generate Test setBefore
 class CustomerJDBCDataAccessServiceTest extends TestContainersTest {
