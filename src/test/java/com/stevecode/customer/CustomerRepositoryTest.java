@@ -3,13 +3,18 @@ package com.stevecode.customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.cassandra.DataCassandraTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 //Load ALL BEANS from Context
-@SpringBootTest
+@DataJpaTest
+//Connect to Docker-Compose
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class CustomerRepositoryTest {
 
     //DI like constructor-call
@@ -26,6 +31,11 @@ class CustomerRepositoryTest {
 
     @Test
     void existsCustomerByEmail() {
+        //Given
+
+        //When
+
+        //Then
     }
 
     @Test
