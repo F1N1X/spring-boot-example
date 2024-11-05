@@ -96,13 +96,21 @@ class JPADataAccessServiceTest {
     void deleteCustomerById() {
         //Given
         int id = 1;
-        //Then
-        underTest.deleteCustomerById(id);
         //When
+        underTest.deleteCustomerById(id);
+        //Then
         verify(customerMockRepository).deleteById(id);
     }
 
     @Test
     void updateCustomer() {
+        //Given
+        Customer customer = new Customer();
+
+        //When
+        underTest.updateCustomer(customer);
+
+        //Then
+        verify(customerMockRepository).save(customer);
     }
 }
