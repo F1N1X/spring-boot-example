@@ -1,6 +1,7 @@
 package com.stevecode.customer;
 
 import com.github.javafaker.Faker;
+import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 import com.stevecode.TestContainersTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
