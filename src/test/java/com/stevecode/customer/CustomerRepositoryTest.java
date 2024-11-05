@@ -8,6 +8,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.ApplicationContext;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -26,6 +28,26 @@ class CustomerRepositoryTest extends AbstractTestcontainers {
     }
     @Test
     void existsCustomerByEmail() {
+        //Given
+        var mail = FAKER.internet().emailAddress();
+        var customer = new Customer(
+                FAKER.name().fullName(),
+                mail,
+                FAKER.number().numberBetween(16, 60)
+        );
+        underTest.save(customer);
+
+        var isIdFound = underTest.findAll()
+                .stream()
+                .filter(c -> c.getEmail().equals(mail))
+                .findFirst()
+                .map(Customer::getId)
+                .map(underTest::existsCustomerById)
+                .orElseThrow();
+
+
+        //When
+        assertThat(isIdFound).isTrue();
     }
 
     @Test
