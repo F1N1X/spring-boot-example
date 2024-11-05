@@ -56,14 +56,40 @@ class JPADataAccessServiceTest {
 
     @Test
     void insertCustomer() {
+        //Given
+        Customer customer = new Customer(
+                1,
+                "test",
+                "test@mail.com",
+                1
+        );
+        //When
+        underTest.insertCustomer(customer);
+
+        //Then
+        verify(customerMockRepository).save(customer);
     }
 
     @Test
     void existsPersonWithEmail() {
+        //Given
+        String email = "test@test.de";
+
+        //When
+        underTest.existsPersonWithEmail(email);
+
+        //Then
+        verify(customerMockRepository).existsCustomerByEmail(email);
     }
 
     @Test
     void existPersonWithId() {
+        //Given
+        int id = 1;
+        //When
+        underTest.existPersonWithId(id);
+        //Then
+        verify(customerMockRepository).existsCustomerById(id);
     }
 
     @Test
