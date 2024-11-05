@@ -47,6 +47,7 @@ public class JPADataAccessService implements CustomerDao{
 
     @Override
     public void updateCustomer(Customer updateCustomer) {
+        //customerRepository.save(new Customer) -> fail found connections works not correct
         customerRepository.save(updateCustomer);
     }
 }
