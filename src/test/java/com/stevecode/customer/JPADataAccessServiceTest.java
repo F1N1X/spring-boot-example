@@ -5,9 +5,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 class JPADataAccessServiceTest {
 
@@ -32,6 +34,14 @@ class JPADataAccessServiceTest {
 
     @Test
     void selectAllCustomers() {
+        //Test with Mockito that all calls right methods
+
+        //When
+        underTest.selectAllCustomers();
+
+        //Then
+        verify(customerMockRepository)
+                .findAll();
     }
 
     @Test
