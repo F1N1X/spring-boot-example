@@ -8,6 +8,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.ApplicationContext;
 
+import java.util.UUID;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -41,8 +43,8 @@ class CustomerRepositoryTest extends AbstractTestcontainers {
                 .stream()
                 .filter(c -> c.getEmail().equals(mail))
                 .findFirst()
-                .map(Customer::getId)
-                .map(underTest::existsCustomerById)
+                .map(Customer::getEmail)
+                .map(underTest::existsCustomerByEmail)
                 .orElseThrow();
 
 
@@ -51,7 +53,40 @@ class CustomerRepositoryTest extends AbstractTestcontainers {
     }
 
     @Test
+    void existsCustomerByEmailFailsWhenNotExists() {
+        //Given
+       String email = FAKER.internet().emailAddress()+"-"+ UUID.randomUUID();
+
+       //When
+        var acutal = underTest.existsCustomerByEmail(email);
+
+        //Then
+        assertThat(acutal).isFalse();
+
+    }
+
+    @Test
     void existsCustomerById() {
+        //Given
+        var mail = FAKER.internet().emailAddress();
+        var customer = new Customer(
+                FAKER.name().fullName(),
+                mail,
+                FAKER.number().numberBetween(16, 60)
+        );
+        underTest.save(customer);
+
+        var isIdFound = underTest.findAll()
+                .stream()
+                .filter(c -> c.getEmail().equals(mail))
+                .findFirst()
+                .map(Customer::getId)
+                .map(underTest::existsCustomerById)
+                .orElseThrow();
+
+
+        //When
+        assertThat(isIdFound).isTrue();
     }
 
 
