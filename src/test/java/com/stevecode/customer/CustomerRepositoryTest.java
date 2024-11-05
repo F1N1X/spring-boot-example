@@ -65,6 +65,21 @@ class CustomerRepositoryTest extends AbstractTestcontainers {
 
     }
 
+
+    @Test
+    void existsCustomerByIdFailsWhenNotExists() {
+        //Given
+        var id = -1;
+
+
+        //When
+        var acutal = underTest.existsCustomerById(id);
+
+        //Then
+        assertThat(acutal).isFalse();
+
+    }
+
     @Test
     void existsCustomerById() {
         //Given
