@@ -8,6 +8,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.mockito.Mockito.verify;
+
 @ExtendWith(MockitoExtension.class)
 class CustomerServiceTest {
 
@@ -20,9 +22,13 @@ class CustomerServiceTest {
         MockitoAnnotations.openMocks(this);
         underTest = new CustomerService(customerDao);
     }
-    
+
     @Test
     void getAllCustomers() {
+        //When
+        underTest.getAllCustomers();
+        //Then
+        verify(customerDao).selectAllCustomers();
     }
 
     @Test
