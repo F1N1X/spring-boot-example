@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -75,6 +76,30 @@ class CustomerServiceTest {
 
     @Test
     void addCustomer() {
+        //Given
+        String email = "test@test.com";
+        when(customerDao.existsPersonWithEmail(email)).thenReturn(false);
+        CustomerRegistrationRequest request = new CustomerRegistrationRequest(
+                "testName",
+                "testEmail",
+                16
+        );
+
+        //When
+        underTest.addCustomer(request);
+
+        ArgumentCaptor<Customer> customerArgumentCaptor = ArgumentCaptor.forClass(
+                Customer.class
+        );
+        verify(customerDao).insertCustomer(customerArgumentCaptor.capture());
+
+        Customer capturedCustomer = customerArgumentCaptor.getValue();
+
+        //Then
+        assertThat(capturedCustomer.getId()).isNull();
+        assertThat(capturedCustomer.getName()).isEqualTo(request.name());
+        assertThat(capturedCustomer.getEmail()).isEqualTo(request.email());
+        assertThat(capturedCustomer.getAge()).isEqualTo(request.age());
     }
 
     @Test
