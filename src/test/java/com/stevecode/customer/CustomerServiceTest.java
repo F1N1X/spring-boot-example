@@ -79,6 +79,7 @@ class CustomerServiceTest {
         //Given
         String email = "test@test.com";
         when(customerDao.existsPersonWithEmail(email)).thenReturn(false);
+
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
                 "testName",
                 "testEmail",
@@ -91,6 +92,7 @@ class CustomerServiceTest {
         ArgumentCaptor<Customer> customerArgumentCaptor = ArgumentCaptor.forClass(
                 Customer.class
         );
+
         verify(customerDao).insertCustomer(customerArgumentCaptor.capture());
 
         Customer capturedCustomer = customerArgumentCaptor.getValue();
@@ -126,11 +128,12 @@ class CustomerServiceTest {
 
     @Test
     void deleteCustomerById() {
-        //Given
         //When
+        var id = 10;
+        when(customerDao.existPersonWithId(id)).thenReturn(true);
         //Then
-
-
+        underTest.deleteCustomerById(id);
+        verify(customerDao).deleteCustomerById(id);
     }
 
     @Test
@@ -139,15 +142,13 @@ class CustomerServiceTest {
         Integer id = 10;
         when(customerDao.existPersonWithId(id)).thenReturn(false);
 
-        //When
+        //Then
         assertThatThrownBy( () -> underTest.deleteCustomerById(id))
                 .isInstanceOf(ResourceNotFoundException.class)
                 .hasMessage(
                         "Customer with ID [%s] not exist".formatted(id)
                 );
 
-        //Then
-        verify(customerDao,never()).deleteCustomerById(id);
     }
 
     @Test
