@@ -116,7 +116,6 @@ class CustomerServiceTest {
         );
 
         //When
-        underTest.addCustomer(request);
         assertThatThrownBy(() -> underTest.addCustomer(request))
                 .isInstanceOf(DuplicateResourceException.class)
                 .hasMessage( "Email already taken");
@@ -127,6 +126,28 @@ class CustomerServiceTest {
 
     @Test
     void deleteCustomerById() {
+        //Given
+        //When
+        //Then
+
+
+    }
+
+    @Test
+    void ResourceNotFoundExceptionByDeleteCustomerById() {
+        //Given
+        Integer id = 10;
+        when(customerDao.existPersonWithId(id)).thenReturn(false);
+
+        //When
+        assertThatThrownBy( () -> underTest.deleteCustomerById(id))
+                .isInstanceOf(ResourceNotFoundException.class)
+                .hasMessage(
+                        "Customer with ID [%s] not exist".formatted(id)
+                );
+
+        //Then
+        verify(customerDao,never()).deleteCustomerById(id);
     }
 
     @Test
