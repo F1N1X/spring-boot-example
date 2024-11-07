@@ -1,5 +1,6 @@
 package com.stevecode.customer;
 
+import com.stevecode.exception.DuplicateResourceException;
 import com.stevecode.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,8 +16,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class CustomerServiceTest {
@@ -85,7 +85,7 @@ class CustomerServiceTest {
                 16
         );
 
-        //When
+        //Then
         underTest.addCustomer(request);
 
         ArgumentCaptor<Customer> customerArgumentCaptor = ArgumentCaptor.forClass(
@@ -95,11 +95,34 @@ class CustomerServiceTest {
 
         Customer capturedCustomer = customerArgumentCaptor.getValue();
 
-        //Then
+        //When
         assertThat(capturedCustomer.getId()).isNull();
         assertThat(capturedCustomer.getName()).isEqualTo(request.name());
         assertThat(capturedCustomer.getEmail()).isEqualTo(request.email());
         assertThat(capturedCustomer.getAge()).isEqualTo(request.age());
+    }
+
+
+    @Test
+    void willTrowWhenEmailExistsWhileAddingCustomer() {
+        //Given
+        String email = "test@test.com";
+        when(customerDao.existsPersonWithEmail(email)).thenReturn(true);
+
+        CustomerRegistrationRequest request = new CustomerRegistrationRequest(
+                "testName",
+                email,
+                16
+        );
+
+        //When
+        underTest.addCustomer(request);
+        assertThatThrownBy(() -> underTest.addCustomer(request))
+                .isInstanceOf(DuplicateResourceException.class)
+                .hasMessage( "Email already taken");
+
+        //Then
+        verify(customerDao, never()).insertCustomer(any());
     }
 
     @Test
