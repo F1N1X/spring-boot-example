@@ -152,6 +152,26 @@ class CustomerServiceTest {
     }
 
     @Test
-    void updateCustomer() {
+    void selectCustomerByIdExceptionGetCustomer() {
+        
+    }
+
+    @Test
+    void IdNotExistExceptionToUpdateCustomer() {
+        var id = 10;
+        CustomerUpdateRequest request = new CustomerUpdateRequest(
+                "Rudi",
+                "test@mail.com",
+                12
+        );
+
+        when(customerDao.existPersonWithId(id)).thenReturn(false);
+
+        assertThatThrownBy(()->{underTest.updateCustomer(id,request);})
+                .isInstanceOf(ResourceNotFoundException.class)
+                .hasMessage("Customer with ID [%s] not exist".formatted(id));
+
+
+        verify(customerDao,never()).updateCustomer(any());
     }
 }
