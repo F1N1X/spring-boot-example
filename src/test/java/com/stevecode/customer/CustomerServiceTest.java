@@ -140,20 +140,25 @@ class CustomerServiceTest {
     void ResourceNotFoundExceptionByDeleteCustomerById() {
         //Given
         Integer id = 10;
-        when(customerDao.existPersonWithId(id)).thenReturn(false);
-
-        //Then
-        assertThatThrownBy( () -> underTest.deleteCustomerById(id))
-                .isInstanceOf(ResourceNotFoundException.class)
-                .hasMessage(
-                        "Customer with ID [%s] not exist".formatted(id)
-                );
+        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
+                "test",
+                "testMail",
+                20
+        );
 
     }
 
     @Test
-    void selectCustomerByIdExceptionGetCustomer() {
-        
+    void throwExceptionOnGetCustomer() {
+
+        var id = 10;
+
+        when(customerDao.selectCustomerById(id)).thenThrow(ResourceNotFoundException.class);
+
+        assertThatThrownBy(()->{underTest.getCustomer(id);})
+                .isInstanceOf(ResourceNotFoundException.class)
+                .hasMessage("Customer with ID [%s] not exist".formatted(id));
+
     }
 
     @Test
@@ -173,5 +178,34 @@ class CustomerServiceTest {
 
 
         verify(customerDao,never()).updateCustomer(any());
+    }
+
+    @Test
+    void updateCustomer() {
+        int id = 10;
+        CustomerUpdateRequest customerUpdateRequest = new CustomerUpdateRequest(
+                "Peter",
+                "p@a.de",
+                23
+        );
+
+        when(customerDao.existPersonWithId(id)).thenReturn(true);
+        ArgumentCaptor<Customer> customerArgumentCaptor = ArgumentCaptor.forClass(
+                Customer.class
+        );
+
+
+         = Optional.of(new Customer("otherName",customerUpdateRequest.email(),customerUpdateRequest.age());
+
+        when(customerDao.selectCustomerById(id)).thenReturn(
+        ));
+
+        underTest.updateCustomer(id,customerUpdateRequest);
+
+
+        verify(customerDao).updateCustomer(customerUpdateRequest);
+
+
+
     }
 }
