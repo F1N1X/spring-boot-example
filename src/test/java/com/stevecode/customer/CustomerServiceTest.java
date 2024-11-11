@@ -275,7 +275,7 @@ class CustomerServiceTest {
         when(customerDao.existPersonWithId(any())).thenReturn(true);
         when(customerDao.selectCustomerById(id)).thenReturn(Optional.of(customerData));
 
-        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(null, null, 19);
+        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(null, "NewMail", null);
 
 
 
@@ -290,8 +290,8 @@ class CustomerServiceTest {
         Customer captuaredCustomer = customerArgumentCaptor.getValue();
 
         assertThat(captuaredCustomer.getName()).isEqualTo(customerData.getName());
-        assertThat(captuaredCustomer.getEmail()).isEqualTo(customerData.getEmail());
-        assertThat(captuaredCustomer.getAge()).isEqualTo(updateRequest.age());
+        assertThat(captuaredCustomer.getEmail()).isEqualTo(updateRequest.email());
+        assertThat(captuaredCustomer.getAge()).isEqualTo(customerData.getAge());
     }
 
 
