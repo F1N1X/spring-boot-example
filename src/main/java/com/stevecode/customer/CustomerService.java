@@ -63,12 +63,7 @@ public class CustomerService {
                     "Customer with ID [%s] not exist".formatted(customerId)
             );
 
-        var customerData = new Customer(
-                customerId,
-                customerUpdateRequest.name(),
-                customerUpdateRequest.email(),
-                customerUpdateRequest.age()
-        );
+
 
         var changeFound = false;
         Customer customer = getCustomer(customerId);
@@ -98,7 +93,7 @@ public class CustomerService {
                     "Customer with ID [%s] nothing to update".formatted(customerId)
             );
 
-        customerDao.updateCustomer(customerData);
+        customerDao.updateCustomer(customer);
 
     }
 }
