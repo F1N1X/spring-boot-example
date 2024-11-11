@@ -210,6 +210,7 @@ class CustomerServiceTest {
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("Alexandro", "alexnadro@gmail.com", 14);
 
         when(customerDao.existsPersonWithEmail(updateRequest.email())).thenReturn(false);
+        when(customerDao.existPersonWithId(id)).thenReturn(true);
 
         //When
         underTest.updateCustomer(id, updateRequest);
