@@ -195,21 +195,25 @@ class CustomerServiceTest {
 
     @Test
     void updateCustomer() {
+        //Given
         int id = 10;
-        CustomerUpdateRequest customerUpdateRequest = new CustomerUpdateRequest(
-                "Peter",
-                "p@a.de",
-                23
+        Customer customer = new Customer(
+                id,
+                "test",
+                "test@test",
+                11
         );
+        when(customerDao.selectCustomerById(id)).thenReturn(Optional.of(customer));
 
-        when(customerDao.existPersonWithId(id)).thenReturn(true);
-        ArgumentCaptor<Customer> customerArgumentCaptor = ArgumentCaptor.forClass(
-                Customer.class
-        );
+        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("Alexandro", "alexnadro@gmail.com", 14);
 
+        when(customerDao.existsPersonWithEmail(updateRequest.email())).thenReturn(false);
 
+        //When
+        underTest.updateCustomer(id, updateRequest);
 
-
+        //Then
+        verify(customerDao).updateCustomer(customer);
 
     }
 }
