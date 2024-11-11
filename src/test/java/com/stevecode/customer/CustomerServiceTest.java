@@ -1,6 +1,7 @@
 package com.stevecode.customer;
 
 import com.stevecode.exception.DuplicateResourceException;
+import com.stevecode.exception.RequestValidationException;
 import com.stevecode.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -222,7 +223,6 @@ class CustomerServiceTest {
         assertThat(captuaredCustomer.getAge()).isEqualTo(customer.getAge());
         assertThat(captuaredCustomer.getEmail()).isEqualTo(customer.getEmail());
         assertThat(captuaredCustomer.getName()).isEqualTo(customer.getName());
-
     }
 
     @Test
@@ -257,7 +257,6 @@ class CustomerServiceTest {
         assertThat(captuaredCustomer.getName()).isEqualTo(updateRequest.name());
         assertThat(captuaredCustomer.getEmail()).isEqualTo(customerData.getEmail());
         assertThat(captuaredCustomer.getAge()).isEqualTo(customerData.getAge());
-
     }
 
     @Test
@@ -321,6 +320,32 @@ class CustomerServiceTest {
         //Then
 
         verify(customerDao, never()).updateCustomer(any());
+    }
+
+
+    @Test
+    void willThrowWhenCustomerUpdateHasNoChanges() {
+        //Given
+        int id = 10;
+        Customer customer = new Customer(
+                id,
+                "test",
+                "test@test",
+                11
+        );
+        when(customerDao.existPersonWithId(any())).thenReturn(true);
+        when(customerDao.selectCustomerById(id)).thenReturn(Optional.of(customer));
+
+        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(customer.getName(), customer.getEmail(), customer.getAge());
+
+
+        //When
+        assertThatThrownBy(() -> underTest.updateCustomer(id, updateRequest))
+                .isInstanceOf(RequestValidationException.class)
+                .hasMessage("Customer with ID [%s] nothing to update".formatted(customer.getId()));
+
+        //Then
+      verify(customerDao, never()).updateCustomer(any());
     }
 
 }
