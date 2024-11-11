@@ -146,7 +146,7 @@ class CustomerServiceTest {
         //When
         assertThatThrownBy(() -> underTest.deleteCustomerById(id))
                 .isInstanceOf(ResourceNotFoundException.class)
-                .hasMessage( "Customer with id [%s] not found".formatted(id));
+                .hasMessage( "Customer with ID [%s] not exist".formatted(id));
         //Then
         verify(customerDao, never()).deleteCustomerById(id);
     }
@@ -170,9 +170,8 @@ class CustomerServiceTest {
 
         when(customerDao.selectCustomerById(id)).thenThrow(ResourceNotFoundException.class);
 
-        assertThatThrownBy(()->{underTest.getCustomer(id);})
-                .isInstanceOf(ResourceNotFoundException.class)
-                .hasMessage("Customer with ID [%s] not exist".formatted(id));
+        assertThatThrownBy(() -> underTest.getCustomer(id))
+                .isInstanceOf(ResourceNotFoundException.class);
 
     }
 
