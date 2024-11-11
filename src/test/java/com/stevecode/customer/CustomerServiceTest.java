@@ -213,7 +213,15 @@ class CustomerServiceTest {
         underTest.updateCustomer(id, updateRequest);
 
         //Then
-        verify(customerDao).updateCustomer(customer);
+        ArgumentCaptor<Customer> customerArgumentCaptor =
+                ArgumentCaptor.forClass(Customer.class);
 
+        verify(customerDao).updateCustomer(customerArgumentCaptor.capture());
+        Customer captuaredCustomer = customerArgumentCaptor.getValue();
+
+        assertThat(captuaredCustomer.getAge()).isEqualTo(customer.getAge());
+        assertThat(captuaredCustomer.getEmail()).isEqualTo(customer.getEmail());
+        assertThat(captuaredCustomer.getName()).isEqualTo(customer.getName());
+        
     }
 }
