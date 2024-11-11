@@ -83,7 +83,7 @@ public class CustomerService {
                 throw new DuplicateResourceException(
                         "Email [%s] is already taken".formatted(customerUpdateRequest.email()));
 
-            customer.setName(customerUpdateRequest.email());
+            customer.setEmail(customerUpdateRequest.email());
             changeFound = true;
         }
 
