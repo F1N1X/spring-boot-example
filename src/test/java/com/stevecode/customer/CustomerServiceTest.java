@@ -77,11 +77,12 @@ class CustomerServiceTest {
     void addCustomer() {
         //Given
         String email = "test@test.com";
+
         when(customerDao.existsPersonWithEmail(email)).thenReturn(false);
 
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
                 "testName",
-                "testEmail",
+                email,
                 16
         );
 
