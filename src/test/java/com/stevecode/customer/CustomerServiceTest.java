@@ -172,7 +172,6 @@ class CustomerServiceTest {
 
         assertThatThrownBy(() -> underTest.getCustomer(id))
                 .isInstanceOf(ResourceNotFoundException.class);
-
     }
 
     @Test
