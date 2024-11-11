@@ -2,13 +2,11 @@ package com.stevecode.customer;
 
 import com.stevecode.exception.DuplicateResourceException;
 import com.stevecode.exception.ResourceNotFoundException;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -128,12 +126,27 @@ class CustomerServiceTest {
 
     @Test
     void deleteCustomerById() {
-        //When
+        //Given
         var id = 10;
         when(customerDao.existPersonWithId(id)).thenReturn(true);
-        //Then
+        //When
         underTest.deleteCustomerById(id);
+        //Then
         verify(customerDao).deleteCustomerById(id);
+    }
+
+
+    @Test
+    void ThrowExceptionNotFoundCustomerByDeleteCustomerById() {
+        //Given
+        var id = 10;
+        when(customerDao.existPersonWithId(id)).thenReturn(false);
+        //When
+        assertThatThrownBy(() -> underTest.deleteCustomerById(id))
+                .isInstanceOf(ResourceNotFoundException.class)
+                .hasMessage( "Customer with id [%s] not found".formatted(id));
+        //Then
+        verify(customerDao, never()).deleteCustomerById(id);
     }
 
     @Test
@@ -195,15 +208,6 @@ class CustomerServiceTest {
         );
 
 
-         = Optional.of(new Customer("otherName",customerUpdateRequest.email(),customerUpdateRequest.age());
-
-        when(customerDao.selectCustomerById(id)).thenReturn(
-        ));
-
-        underTest.updateCustomer(id,customerUpdateRequest);
-
-
-        verify(customerDao).updateCustomer(customerUpdateRequest);
 
 
 
