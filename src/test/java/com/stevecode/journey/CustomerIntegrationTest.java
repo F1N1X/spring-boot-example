@@ -76,7 +76,6 @@ public class CustomerIntegrationTest {
                 .contains(expected);
 
         // get customer by id
-
         var id = allCustomers.stream()
                         .filter(customer -> customer.getEmail().equals(email))
                         .map(Customer::getId)
@@ -93,6 +92,5 @@ public class CustomerIntegrationTest {
                 .isOk()
                 .expectBody(new ParameterizedTypeReference<Customer>() {})
                 .isEqualTo(expected);
-
     }
 }
