@@ -93,4 +93,124 @@ public class CustomerIntegrationTest {
                 .expectBody(new ParameterizedTypeReference<Customer>() {})
                 .isEqualTo(expected);
     }
+
+    @Test
+    void canDeleteCustomer() {
+        // create customer registration
+        Faker faker = new Faker();
+        Name fakerName = faker.name();
+        String name = fakerName.fullName();
+        String email = name + UUID.randomUUID()+"@stevecode.com";
+        int age = RANDOM.nextInt(1,100);
+        CustomerRegistrationRequest request = new CustomerRegistrationRequest(
+                name, email, age
+        );
+        // send a post request
+        webTestClient.post()
+                .uri(CUSTOMER_URI)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(Mono.just(request),CustomerRegistrationRequest.class)
+                .exchange()
+                .expectStatus()
+                .isOk();
+        // get all customers
+        List<Customer> allCustomers = webTestClient.get()
+                .uri(CUSTOMER_URI)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBodyList(new ParameterizedTypeReference<Customer>() {
+                })
+                .returnResult()
+                .getResponseBody();
+
+
+
+        // get customer by id
+        var id = allCustomers.stream()
+                .filter(customer -> customer.getEmail().equals(email))
+                .map(Customer::getId)
+                .findFirst()
+                .orElseThrow();
+
+
+        //str + alt + l
+        webTestClient.delete()
+                .uri(CUSTOMER_URI + "/{id}", id)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus()
+                .isOk();
+
+
+        webTestClient.get()
+                .uri(CUSTOMER_URI + "/{id}", id)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectStatus()
+                .isNotFound();
+    }
+
+    @Test
+    void canUpdateCustomer() {
+        // create customer registration
+        Faker faker = new Faker();
+        Name fakerName = faker.name();
+        String name = fakerName.fullName();
+        String email = name + UUID.randomUUID()+"@stevecode.com";
+        int age = RANDOM.nextInt(1,100);
+        CustomerRegistrationRequest request = new CustomerRegistrationRequest(
+                name, email, age
+        );
+        // send a post request
+        webTestClient.post()
+                .uri(CUSTOMER_URI)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(Mono.just(request),CustomerRegistrationRequest.class)
+                .exchange()
+                .expectStatus()
+                .isOk();
+        // get all customers
+        List<Customer> allCustomers = webTestClient.get()
+                .uri(CUSTOMER_URI)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBodyList(new ParameterizedTypeReference<Customer>() {
+                })
+                .returnResult()
+                .getResponseBody();
+
+        Customer expected = new Customer(
+                name, email, age
+        );
+
+        // make sure that customer is present
+        assertThat(allCustomers).usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
+                .contains(expected);
+
+        // get customer by id
+        var id = allCustomers.stream()
+                .filter(customer -> customer.getEmail().equals(email))
+                .map(Customer::getId)
+                .findFirst()
+                .orElseThrow();
+
+        expected.setId(id);
+
+        webTestClient.get()
+                .uri(CUSTOMER_URI + "/{id}", id)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody(new ParameterizedTypeReference<Customer>() {})
+                .isEqualTo(expected);
+    }
 }

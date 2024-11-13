@@ -34,7 +34,5 @@ class CustomerRowMapperTest {
 
         //Assertions.assertThat
         assertThat(expected).isEqualTo(actual);
-
-
     }
 }
