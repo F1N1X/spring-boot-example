@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.github.javafaker.Name;
 import com.stevecode.customer.Customer;
 import com.stevecode.customer.CustomerRegistrationRequest;
+import com.stevecode.customer.CustomerUpdateRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -187,13 +188,13 @@ public class CustomerIntegrationTest {
                 .returnResult()
                 .getResponseBody();
 
-        Customer expected = new Customer(
+        Customer customerChangeModel = new Customer(
                 name, email, age
         );
 
         // make sure that customer is present
         assertThat(allCustomers).usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
-                .contains(expected);
+                .contains(customerChangeModel);
 
         // get customer by id
         var id = allCustomers.stream()
@@ -202,15 +203,43 @@ public class CustomerIntegrationTest {
                 .findFirst()
                 .orElseThrow();
 
-        expected.setId(id);
+        customerChangeModel.setId(id);
 
-        webTestClient.get()
-                .uri(CUSTOMER_URI + "/{id}", id)
+
+
+        var updateRequest = new CustomerUpdateRequest(
+                faker.name().fullName(),
+                faker.internet().emailAddress(),
+                faker.number().numberBetween(1,30)
+        );
+
+
+        webTestClient.put()
+                .uri(CUSTOMER_URI + "/{id}",id)
+                .accept(MediaType.APPLICATION_JSON)
+                .body(Mono.just(updateRequest), CustomerUpdateRequest.class)
+                .exchange()
+                .expectStatus()
+                .isOk();
+
+
+
+
+        // get all customers
+        Customer actualCustomer = webTestClient.get()
+                .uri(CUSTOMER_URI + "/{id}",id)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectStatus()
                 .isOk()
-                .expectBody(new ParameterizedTypeReference<Customer>() {})
-                .isEqualTo(expected);
+                .expectBody(new ParameterizedTypeReference<Customer>() {
+                })
+                .returnResult()
+                .getResponseBody();
+
+        assertThat(actualCustomer.getEmail()).isEqualTo(updateRequest.email());
+        assertThat(actualCustomer.getAge()).isEqualTo(updateRequest.age());
+        assertThat(actualCustomer.getName()).isEqualTo(updateRequest.name());
+
     }
 }

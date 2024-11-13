@@ -1,6 +1,6 @@
 package com.stevecode.customer;
 
-record CustomerUpdateRequest(
+public record CustomerUpdateRequest(
         String name,
         String email,
         Integer age
