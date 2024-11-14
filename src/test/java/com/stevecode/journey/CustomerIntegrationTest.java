@@ -217,6 +217,7 @@ public class CustomerIntegrationTest {
         webTestClient.put()
                 .uri(CUSTOMER_URI + "/{id}",id)
                 .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
                 .body(Mono.just(updateRequest), CustomerUpdateRequest.class)
                 .exchange()
                 .expectStatus()
