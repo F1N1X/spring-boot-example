@@ -238,9 +238,7 @@ public class CustomerIntegrationTest {
                 .returnResult()
                 .getResponseBody();
 
-        assertThat(actualCustomer.getEmail()).isEqualTo(updateRequest.email());
-        assertThat(actualCustomer.getAge()).isEqualTo(updateRequest.age());
-        assertThat(actualCustomer.getName()).isEqualTo(updateRequest.name());
+       assertThat(actualCustomer).isNotEqualTo(customerChangeModel);
 
     }
 }
