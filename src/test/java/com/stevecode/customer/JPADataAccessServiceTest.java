@@ -85,7 +85,7 @@ class JPADataAccessServiceTest {
     @Test
     void existPersonWithId() {
         //Given
-        int id = 1;
+        int id = 6;
         //When
         underTest.existPersonWithId(id);
         //Then
