@@ -1,118 +1,113 @@
-/*
 package com.stevecode.customer;
 
-import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
+
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
-class JPADataAccessServiceTest {
+class CustomerJPADataAccessServiceTest {
 
     private JPADataAccessService underTest;
     private AutoCloseable autoCloseable;
-
-    @Mock
-    private CustomerRepository customerMockRepository;
+    @Mock private CustomerRepository customerRepository;
 
     @BeforeEach
     void setUp() {
-        //close after Test
         autoCloseable = MockitoAnnotations.openMocks(this);
-        underTest = new JPADataAccessService(customerMockRepository);
+        underTest = new JPADataAccessService(customerRepository);
     }
 
     @AfterEach
     void tearDown() throws Exception {
-        //after each test -> fresh mock
         autoCloseable.close();
     }
 
     @Test
     void selectAllCustomers() {
-        //Test with Mockito that all calls right methods
-
-        //When
+        // When
         underTest.selectAllCustomers();
 
-        //Then
-        verify(customerMockRepository)
-                .findAll();
+        // Then
+        verify(customerRepository).findAll();
     }
 
     @Test
     void selectCustomerById() {
-        //Given
+        // Given
         int id = 1;
-        //When
+
+        // When
         underTest.selectCustomerById(id);
-        //Then
-        verify(customerMockRepository).findById(id);
+
+        // Then
+        verify(customerRepository).findById(id);
     }
 
     @Test
     void insertCustomer() {
-        //Given
+        // Given
         Customer customer = new Customer(
-                1,
-                "test",
-                "test@mail.com",
-                1
+                1, "Ali", "ali@gmail.com", 2
         );
-        //When
+
+        // When
         underTest.insertCustomer(customer);
 
-        //Then
-        verify(customerMockRepository).save(customer);
+        // Then
+        verify(customerRepository).save(customer);
     }
 
     @Test
-    void existsPersonWithEmail() {
-        //Given
-        String email = "test@test.de";
+    void existsCustomerWithEmail() {
+        // Given
+        String email = "foo@gmail.com";
 
-        //When
+        // When
         underTest.existsPersonWithEmail(email);
 
-        //Then
-        verify(customerMockRepository).existsCustomerByEmail(email);
+        // Then
+        verify(customerRepository).existsCustomerByEmail(email);
     }
 
     @Test
-    void existPersonWithId() {
-        //Given
-        int id = 6;
-        //When
+    void existsCustomerById() {
+        // Given
+        int id = 1;
+
+        // When
         underTest.existPersonWithId(id);
-        //Then
-        verify(customerMockRepository).existsCustomerById(id);
+
+        // Then
+        verify(customerRepository).existsCustomerById(id);
     }
 
     @Test
     void deleteCustomerById() {
-        //Given
+        // Given
         int id = 1;
-        //When
+
+        // When
         underTest.deleteCustomerById(id);
-        //Then
-        verify(customerMockRepository).deleteById(id);
+
+        // Then
+        verify(customerRepository).deleteById(id);
     }
 
     @Test
     void updateCustomer() {
-        //Given
-        Customer customer = new Customer();
+        // Given
+        Customer customer = new Customer(
+                1, "Ali", "ali@gmail.com", 2
+        );
 
-        //When
+        // When
         underTest.updateCustomer(customer);
 
-        //Then
-        verify(customerMockRepository).save(customer);
+        // Then
+        verify(customerRepository).save(customer);
     }
 }
- */
