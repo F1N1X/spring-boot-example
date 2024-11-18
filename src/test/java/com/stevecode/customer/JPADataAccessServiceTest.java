@@ -82,7 +82,7 @@ class CustomerJPADataAccessServiceTest {
         underTest.existPersonWithId(id);
 
         // Then
-        verify(customerRepository).existsCustomerById(id);
+        verify(customerRepository).existsById(id);
     }
 
     @Test

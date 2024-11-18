@@ -1,5 +1,6 @@
 package com.stevecode .customer;
 import com.stevecode.AbstractTestcontainers;
+import com.stevecode.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -59,13 +60,15 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
         });
     }
     @Test
-    void willReturnEmptyWhenSelectCustomerById() {
+    void willThrowExceptionWhenNotFound() {
         // Given
-        int id = 0;
-        // When
-        var actual = underTest.selectCustomerById(id);
-        // Then
-        assertThat(actual).isEmpty();
+        int id = -1;
+
+        assertThatThrownBy(() -> underTest.selectCustomerById(id))
+                .isInstanceOf(ResourceNotFoundException.class)
+                .hasMessage("Customer with id %d not found".formatted(id));
+
+
     }
     @Test
     void existsPersonWithEmail() {

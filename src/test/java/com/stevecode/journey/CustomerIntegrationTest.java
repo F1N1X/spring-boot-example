@@ -151,8 +151,6 @@ public class CustomerIntegrationTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectStatus()
-                .isOk()
-                .expectStatus()
                 .isNotFound();
     }
 
