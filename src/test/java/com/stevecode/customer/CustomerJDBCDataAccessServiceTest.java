@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import static org.assertj.core.api.Assertions.assertThat;
+
+import static org.assertj.core.api.Assertions.*;
+
 class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
     private CustomerJDBCDataAccessService underTest;
     private final CustomerRowMapper customerRowMapper = new CustomerRowMapper();
@@ -125,12 +127,13 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
         // Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
         Customer customer = new Customer(
-                FAKER.name().fullName(),
+                "TestName",
                 email,
-                20
+                18
         );
         underTest.insertCustomer(customer);
-        int id = underTest.selectAllCustomers()
+
+        var id = underTest.selectAllCustomers()
                 .stream()
                 .filter(c -> c.getEmail().equals(email))
                 .map(Customer::getId)
@@ -138,9 +141,10 @@ class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers {
                 .orElseThrow();
         // When
         underTest.deleteCustomerById(id);
+
         // Then
-        Optional<Customer> actual = underTest.selectCustomerById(id);
-        assertThat(actual).isNotPresent();
+        assertThatThrownBy(() ->underTest.selectCustomerById(id))
+                .isInstanceOf(RuntimeException.class);
     }
     @Test
     void updateCustomerName() {
