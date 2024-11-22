@@ -18,3 +18,7 @@ docker-compose down	Stop all services defined in a docker-compose.yml file
 
 
 docker run -it --rm stevecodestuff/stevecode-fullstack:0.0.1-SNAPSHOT sh
+docker network
+
+
+docker run -d --name stevecode-fullstack --rm -p 8080:8080 --network spring-boot-example_postgres stevecodestuff/stevecode-fullstack:0.0.1-SNAPSHOT --spring.datasource.url=jdbc:postgresql://postgres:5432/customer
