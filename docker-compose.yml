@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     container_name: postgres
-    image: postgres:16  # Version auf 16 gesetzt
+    image: postgres:16
     environment:
       POSTGRES_USER: amigoscode
       POSTGRES_PASSWORD: password
@@ -13,24 +13,21 @@ services:
     ports:
       - "5332:5432"
     networks:
-      - postgres
+      - app_network
     restart: unless-stopped
+
   stevecode-fullstack:
     container_name: stevecode-fullstack
     image: stevecodestuff/stevecode-fullstack
     environment:
-      - SPRING_DATASOURCE_url: jdbc:postgresql://postgres:5432/customer
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/customer
     ports:
       - "8080:8080"
     networks:
-      - db
+      - app_network
     depends_on:
       - db
     restart: unless-stopped
-    command:
-      - --spring.datasource.url=jdbc:postgresql://postgres:5432/customer
-
-
 
   pgadmin:
     container_name: pgadmin
@@ -44,13 +41,13 @@ services:
     ports:
       - "5050:80"
     networks:
-      - postgres
+      - app_network
     restart: unless-stopped
     depends_on:
       - db
 
 networks:
-  postgres:
+  app_network:
     driver: bridge
 
 volumes:
