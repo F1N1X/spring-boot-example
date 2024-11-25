@@ -18,6 +18,8 @@ services:
   stevecode-fullstack:
     container_name: stevecode-fullstack
     image: stevecodestuff/stevecode-fullstack
+    environment:
+      - SPRING_DATASOURCE_url: jdbc:postgresql://postgres:5432/customer
     ports:
       - "8080:8080"
     networks:
