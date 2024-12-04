@@ -1,0 +1,1 @@
+ssh -i your-private-key.pem ec2-user@instance-public-ip-address

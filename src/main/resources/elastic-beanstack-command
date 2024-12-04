@@ -1,0 +1,8 @@
+sudo -i
+docker run --rm -it postgres:alpine bash
+psql -U userDB -h host -d postgres
+or
+psql -U userDB -h host -d ebdb
+create database customer;
+docker ps
+docker logs -f container-id
