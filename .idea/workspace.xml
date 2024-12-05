@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b260dbac-d24e-4c11-9c0c-aa7f00c50442" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/git-cheatsheet.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="5a4184e8839aecafeb3de4adcb6f87b451ec4e84" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2lz2DwtC0dhoVepkcpZGoZ2eeGG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SpringBootExampleApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.db: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerIntegrationTest.canDeleteCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerIntegrationTest.canRegisterCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerIntegrationTest.canUpdateCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.deleteCustomerById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.existPersonWithId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.existsPersonWithEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.existsPersonWithEmailReturnsFalseWhenDoesNotExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.insertCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.selectCustomerById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerAge.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerNothingToUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.willReturnEmptyWhenSelectCustomerById.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CustomerJDBCDataAccessServiceTest.willThrowExceptionWhenNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJPADataAccessServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerJPADataAccessServiceTest.existsCustomerById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerRepositoryTest.existsCustomerByEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.CanUpdateAllCustomerProperties.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.CanUpdateOnlyCustomerAge.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.CanUpdateOnlyCustomerEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.CanUpdateOnlyCustomerName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.IdNotExistExceptionToUpdateCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.ThrowExceptionNotFoundCustomerByDeleteCustomerById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.addCustomer.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CustomerServiceTest.deleteCustomerById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.throwExceptionOnGetCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.willThrowWhenCustomerReturnEmptyOptional.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.willThrowWhenCustomerUpdateHasNoChanges.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerServiceTest.willTrowWhenEmailExistsWhileAddingCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JPADataAccessServiceTest.existPersonWithId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JPADataAccessServiceTest.existsPersonWithEmail.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.JPADataAccessServiceTest.insertCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JPADataAccessServiceTest.selectAllCustomers.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JPADataAccessServiceTest.selectCustomerById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JPADataAccessServiceTest.updateCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestContainersTest.canApplyDbMigrationsWithFlyway.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.TestContainersTest.canStartPostgresqlDB.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestContainersTest.executor&quot;: &quot;Debug&quot;,
+    &quot;Maven.spring-boot-example [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-example [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-example [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-example [org.springframework.boot:spring-boot-maven-plugin:3.4.0-M2:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-example [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-example [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-example [verify].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sheiz/Documents/Spring/spring-boot-example/src/main/resources/db/migration&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sheiz\Documents\Spring\spring-boot-example\src\main\resources\db\migration" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.stevecode.customer" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.stevecode.customer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CustomerJDBCDataAccessServiceTest.willThrowExceptionWhenNotFound">
+    <configuration name="CustomerJDBCDataAccessServiceTest.deleteCustomerById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stevecode.customer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stevecode.customer" />
+      <option name="MAIN_CLASS_NAME" value="com.stevecode.customer.CustomerJDBCDataAccessServiceTest" />
+      <option name="METHOD_NAME" value="deleteCustomerById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerJDBCDataAccessServiceTest.willReturnEmptyWhenSelectCustomerById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stevecode.customer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stevecode.customer" />
+      <option name="MAIN_CLASS_NAME" value="com.stevecode.customer.CustomerJDBCDataAccessServiceTest" />
+      <option name="METHOD_NAME" value="willReturnEmptyWhenSelectCustomerById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerJDBCDataAccessServiceTest.willThrowExceptionWhenNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stevecode.customer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stevecode.customer" />
+      <option name="MAIN_CLASS_NAME" value="com.stevecode.customer.CustomerJDBCDataAccessServiceTest" />
+      <option name="METHOD_NAME" value="willThrowExceptionWhenNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerJPADataAccessServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stevecode.customer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stevecode.customer" />
+      <option name="MAIN_CLASS_NAME" value="com.stevecode.customer.CustomerJPADataAccessServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerJPADataAccessServiceTest.existsCustomerById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stevecode.customer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stevecode.customer" />
+      <option name="MAIN_CLASS_NAME" value="com.stevecode.customer.CustomerJPADataAccessServiceTest" />
+      <option name="METHOD_NAME" value="existsCustomerById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="spring-boot-example" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.stevecode.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CustomerJDBCDataAccessServiceTest.willThrowExceptionWhenNotFound" />
+        <item itemvalue="JUnit.CustomerJDBCDataAccessServiceTest.willReturnEmptyWhenSelectCustomerById" />
+        <item itemvalue="JUnit.CustomerJPADataAccessServiceTest" />
+        <item itemvalue="JUnit.CustomerJPADataAccessServiceTest.existsCustomerById" />
+        <item itemvalue="JUnit.CustomerJDBCDataAccessServiceTest.deleteCustomerById" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b260dbac-d24e-4c11-9c0c-aa7f00c50442" name="Changes" comment="" />
+      <created>1726168470391</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726168470391</updated>
+      <workItem from="1728634231634" duration="5044000" />
+      <workItem from="1728645941511" duration="6851000" />
+      <workItem from="1728654282753" duration="44720000" />
+      <workItem from="1729061735016" duration="8425000" />
+      <workItem from="1729329718614" duration="613000" />
+      <workItem from="1729537486314" duration="88000" />
+      <workItem from="1729584047287" duration="9810000" />
+      <workItem from="1729617962480" duration="11269000" />
+      <workItem from="1730068187623" duration="4354000" />
+      <workItem from="1730238988895" duration="467000" />
+      <workItem from="1730749461591" duration="6136000" />
+      <workItem from="1730819003815" duration="14789000" />
+      <workItem from="1730928585099" duration="1036000" />
+      <workItem from="1730983767201" duration="3146000" />
+      <workItem from="1730988187696" duration="1890000" />
+      <workItem from="1731338895799" duration="8521000" />
+      <workItem from="1731439549017" duration="5903000" />
+      <workItem from="1731525155971" duration="5519000" />
+      <workItem from="1731596039001" duration="2361000" />
+      <workItem from="1731614287243" duration="215000" />
+      <workItem from="1731616218531" duration="1294000" />
+      <workItem from="1731617556123" duration="6023000" />
+      <workItem from="1731943996630" duration="29000" />
+      <workItem from="1731944194179" duration="12542000" />
+      <workItem from="1732267235821" duration="3179000" />
+      <workItem from="1732270553558" duration="8080000" />
+      <workItem from="1732284984632" duration="3392000" />
+      <workItem from="1732558741691" duration="3258000" />
+      <workItem from="1732615315856" duration="655000" />
+      <workItem from="1733250617603" duration="5420000" />
+      <workItem from="1733263426811" duration="1371000" />
+      <workItem from="1733331987787" duration="5501000" />
+      <workItem from="1733394839977" duration="1351000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stevecode/customer/CustomerController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stevecode/customer/CustomerController.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stevecode/customer/CustomerJDBCDataAccessService.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/TestContainersTest.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/customer/CustomerRepositoryTest.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/customer/CustomerServiceTest.java</url>
+          <line>219</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/customer/CustomerServiceTest.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stevecode/customer/CustomerService.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stevecode/customer/CustomerService.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stevecode/customer/CustomerService.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/journey/CustomerIntegrationTest.java</url>
+          <line>228</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.flywaydb.core.api.FlywayException" package="org.flywaydb.core.api" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/customer/CustomerServiceTest.java</url>
+          <line>196</line>
+          <properties class="com.stevecode.customer.CustomerServiceTest" method="CanUpdateAllCustomerProperties">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/customer/CustomerServiceTest.java</url>
+          <line>166</line>
+          <properties class="com.stevecode.customer.CustomerServiceTest" method="throwExceptionOnGetCustomer">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/journey/CustomerIntegrationTest.java</url>
+          <line>157</line>
+          <properties class="com.stevecode.journey.CustomerIntegrationTest" method="canUpdateCustomer">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/stevecode/customer/CustomerJDBCDataAccessServiceTest.java</url>
+          <line>62</line>
+          <properties class="com.stevecode.customer.CustomerJDBCDataAccessServiceTest" method="willThrowExceptionWhenNotFound">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.stevecode.customer.CustomerDao$MockitoMock$H9LP0C8v" memberName="mockitoInterceptor" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/spring_boot_example$CustomerJDBCDataAccessServiceTest.ic" NAME="CustomerJDBCDataAccessServiceTest Coverage Results" MODIFIED="1730147944108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.stevecode.customer.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CustomerJDBCDataAccessServiceTest_java$CustomerServiceTest.ic" NAME="CustomerServiceTest Coverage Results" MODIFIED="1731352752194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.stevecode.customer.*</FILTER>
+    </SUITE>
+  </component>
+</project>
