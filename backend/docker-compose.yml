@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     container_name: postgres
-    image: postgres:16
+    image: postgres:16.6
     environment:
       POSTGRES_USER: amigoscode
       POSTGRES_PASSWORD: password

@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b260dbac-d24e-4c11-9c0c-aa7f00c50442" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/backend-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/backend-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +290,7 @@
       <workItem from="1733263426811" duration="1371000" />
       <workItem from="1733331987787" duration="5501000" />
       <workItem from="1733394839977" duration="2050000" />
-      <workItem from="1733866367401" duration="965000" />
+      <workItem from="1733866367401" duration="1039000" />
     </task>
     <servers />
   </component>
