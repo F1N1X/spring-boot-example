@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b260dbac-d24e-4c11-9c0c-aa7f00c50442" name="Changes" comment="" />
+    <list default="true" id="b260dbac-d24e-4c11-9c0c-aa7f00c50442" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/backend-ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +48,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.Main.executor": "Run",
     "Application.SpringBootExampleApplication.executor": "Run",
     "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
@@ -99,6 +104,7 @@
     "Maven.spring-boot-example [verify].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "develop",
@@ -285,6 +291,7 @@
       <workItem from="1733263426811" duration="1371000" />
       <workItem from="1733331987787" duration="5501000" />
       <workItem from="1733394839977" duration="2050000" />
+      <workItem from="1733866367401" duration="390000" />
     </task>
     <servers />
   </component>
