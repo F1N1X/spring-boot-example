@@ -25,6 +25,7 @@ public class Main {
         ConfigurableApplicationContext applicationContext =
                 SpringApplication.run(Main.class, args);
 
+
     }
 
 
