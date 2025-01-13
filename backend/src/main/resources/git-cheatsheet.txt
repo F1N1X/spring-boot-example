@@ -23,3 +23,7 @@ git rm [file]	Removes a specified file from the repository and stages the change
 git mv [old] [new]	Renames a specified file and stages the change for the next commit.
 git remote rm [name]	Removes a specified remote repository from the list of tracked repositories.
 git help [command]	Displays help information for a specified Git command.
+
+git add .
+git commit -m "test for CI"
+git push

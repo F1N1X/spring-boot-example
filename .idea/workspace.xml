@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b260dbac-d24e-4c11-9c0c-aa7f00c50442" name="Changes" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/git-cheatsheet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/git-cheatsheet.txt" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/stevecode/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/stevecode/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/stevecode/customer/CustomerJDBCDataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/stevecode/customer/CustomerJDBCDataAccessService.java" afterDir="false" />
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +36,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;F1N1X&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/F1N1X/spring-boot-example.git&quot;,
+    &quot;accountId&quot;: &quot;b1746758-7be0-4e9e-b562-b7e7a3ce84a2&quot;
+  }
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -46,82 +63,84 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SpringBootExampleApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.db: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerIntegrationTest.canDeleteCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerIntegrationTest.canRegisterCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerIntegrationTest.canUpdateCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.deleteCustomerById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.existPersonWithId.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.existsPersonWithEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.existsPersonWithEmailReturnsFalseWhenDoesNotExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.insertCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.selectCustomerById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerAge.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerName.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerNothingToUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.willReturnEmptyWhenSelectCustomerById.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CustomerJDBCDataAccessServiceTest.willThrowExceptionWhenNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJPADataAccessServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerJPADataAccessServiceTest.existsCustomerById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerRepositoryTest.existsCustomerByEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.CanUpdateAllCustomerProperties.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.CanUpdateOnlyCustomerAge.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.CanUpdateOnlyCustomerEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.CanUpdateOnlyCustomerName.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.IdNotExistExceptionToUpdateCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.ThrowExceptionNotFoundCustomerByDeleteCustomerById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.addCustomer.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CustomerServiceTest.deleteCustomerById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.throwExceptionOnGetCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.willThrowWhenCustomerReturnEmptyOptional.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.willThrowWhenCustomerUpdateHasNoChanges.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerServiceTest.willTrowWhenEmailExistsWhileAddingCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JPADataAccessServiceTest.existPersonWithId.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JPADataAccessServiceTest.existsPersonWithEmail.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.JPADataAccessServiceTest.insertCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JPADataAccessServiceTest.selectAllCustomers.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JPADataAccessServiceTest.selectCustomerById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JPADataAccessServiceTest.updateCustomer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestContainersTest.canApplyDbMigrationsWithFlyway.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TestContainersTest.canStartPostgresqlDB.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestContainersTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven.spring-boot-example [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.spring-boot-example [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.spring-boot-example [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.spring-boot-example [org.springframework.boot:spring-boot-maven-plugin:3.4.0-M2:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.spring-boot-example [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.spring-boot-example [test].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.spring-boot-example [verify].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sheiz/Documents/Spring/spring-boot-example/src/main/resources/db/migration&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Application.SpringBootExampleApplication.executor": "Run",
+    "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "JUnit.CustomerIntegrationTest.canDeleteCustomer.executor": "Run",
+    "JUnit.CustomerIntegrationTest.canRegisterCustomer.executor": "Run",
+    "JUnit.CustomerIntegrationTest.canUpdateCustomer.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.deleteCustomerById.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.existPersonWithId.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.existsPersonWithEmail.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.existsPersonWithEmailReturnsFalseWhenDoesNotExists.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.insertCustomer.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.selectCustomerById.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerAge.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerEmail.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerName.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.updateCustomerNothingToUpdate.executor": "Run",
+    "JUnit.CustomerJDBCDataAccessServiceTest.willReturnEmptyWhenSelectCustomerById.executor": "Debug",
+    "JUnit.CustomerJDBCDataAccessServiceTest.willThrowExceptionWhenNotFound.executor": "Run",
+    "JUnit.CustomerJPADataAccessServiceTest.executor": "Run",
+    "JUnit.CustomerJPADataAccessServiceTest.existsCustomerById.executor": "Run",
+    "JUnit.CustomerRepositoryTest.executor": "Run",
+    "JUnit.CustomerRepositoryTest.existsCustomerByEmail.executor": "Run",
+    "JUnit.CustomerServiceTest.CanUpdateAllCustomerProperties.executor": "Run",
+    "JUnit.CustomerServiceTest.CanUpdateOnlyCustomerAge.executor": "Run",
+    "JUnit.CustomerServiceTest.CanUpdateOnlyCustomerEmail.executor": "Run",
+    "JUnit.CustomerServiceTest.CanUpdateOnlyCustomerName.executor": "Run",
+    "JUnit.CustomerServiceTest.IdNotExistExceptionToUpdateCustomer.executor": "Run",
+    "JUnit.CustomerServiceTest.ThrowExceptionNotFoundCustomerByDeleteCustomerById.executor": "Run",
+    "JUnit.CustomerServiceTest.addCustomer.executor": "Debug",
+    "JUnit.CustomerServiceTest.deleteCustomerById.executor": "Run",
+    "JUnit.CustomerServiceTest.executor": "Run",
+    "JUnit.CustomerServiceTest.throwExceptionOnGetCustomer.executor": "Run",
+    "JUnit.CustomerServiceTest.willThrowWhenCustomerReturnEmptyOptional.executor": "Run",
+    "JUnit.CustomerServiceTest.willThrowWhenCustomerUpdateHasNoChanges.executor": "Run",
+    "JUnit.CustomerServiceTest.willTrowWhenEmailExistsWhileAddingCustomer.executor": "Run",
+    "JUnit.JPADataAccessServiceTest.existPersonWithId.executor": "Run",
+    "JUnit.JPADataAccessServiceTest.existsPersonWithEmail.executor": "Debug",
+    "JUnit.JPADataAccessServiceTest.insertCustomer.executor": "Run",
+    "JUnit.JPADataAccessServiceTest.selectAllCustomers.executor": "Run",
+    "JUnit.JPADataAccessServiceTest.selectCustomerById.executor": "Run",
+    "JUnit.JPADataAccessServiceTest.updateCustomer.executor": "Run",
+    "JUnit.TestContainersTest.canApplyDbMigrationsWithFlyway.executor": "Debug",
+    "JUnit.TestContainersTest.canStartPostgresqlDB.executor": "Run",
+    "JUnit.TestContainersTest.executor": "Debug",
+    "Maven.spring-boot-example [clean].executor": "Run",
+    "Maven.spring-boot-example [compile].executor": "Run",
+    "Maven.spring-boot-example [install].executor": "Run",
+    "Maven.spring-boot-example [org.springframework.boot:spring-boot-maven-plugin:3.4.0-M2:run].executor": "Run",
+    "Maven.spring-boot-example [package].executor": "Run",
+    "Maven.spring-boot-example [test].executor": "Run",
+    "Maven.spring-boot-example [verify].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "testing-ci-build-workflow",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sheiz/Documents/Spring/spring-boot-example/src/main/resources/db/migration",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -245,8 +264,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
       </set>
     </attachedChunks>
   </component>
@@ -292,9 +311,13 @@
       <workItem from="1733331987787" duration="5501000" />
       <workItem from="1733394839977" duration="2050000" />
       <workItem from="1733866367401" duration="3975000" />
-      <workItem from="1733900322042" duration="2385000" />
-      <workItem from="1736800431765" duration="117000" />
-      <workItem from="1736800581464" duration="1171000" />
+      <workItem from="1733900322042" duration="1653000" />
+      <workItem from="1733906496601" duration="15000" />
+<<<<<<< HEAD
+      <workItem from="1733909114357" duration="1609000" />
+=======
+      <workItem from="1733909114357" duration="1176000" />
+>>>>>>> main
     </task>
     <servers />
   </component>
